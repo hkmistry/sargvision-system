@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
@@ -6,6 +7,18 @@ import SmoothScroll from "@/components/shared/smooth-scroll";
 import Script from "next/script";
 import CustomCursor from "@/components/ui/custom-cursor";
 import { ThemeProvider } from "@/components/theme-provider";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "SARGVISION | Sovereign Agentic Universe",
@@ -20,11 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="h-full antialiased"
-      style={{
-        "--font-space-grotesk": "'Space Grotesk', system-ui, -apple-system, sans-serif",
-        "--font-inter": "'Inter', system-ui, -apple-system, sans-serif",
-      } as React.CSSProperties}
+      className={`h-full antialiased ${inter.variable} ${spaceGrotesk.variable}`}
     >
       <body className="min-h-full flex flex-col bg-dark-base text-[#0F172A] dark:text-gray-100 select-none transition-colors duration-500">
         <ThemeProvider>
