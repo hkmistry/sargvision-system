@@ -24,8 +24,7 @@
   --color-premium-vanilla: #FDFFF5;
 
   /* Typography Variables */
-  --font-space-grotesk: var(--font-space-grotesk);
-  --font-inter: var(--font-inter);
+  --font-heading: var(--font-heading-custom);
 
   /* Micro-animations */
   --animate-pulse-slow: pulse 12s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -73,7 +72,7 @@
   --surface-2: #FFFFFF;
 
   --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-heading: var(--font-inter), system-ui, sans-serif;
+  --font-heading-custom: var(--font-inter), system-ui, sans-serif;
   
   /* Smooth scroll settings */
   scroll-behavior: smooth;
@@ -94,7 +93,7 @@
   --premium-ice: #F4F8FF;
 
   --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-heading: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-heading-custom: var(--font-space-grotesk), system-ui, sans-serif;
 }
 
 /* Tighten letters on headings & Inter font in Light Mode for premium SaaS feel */
