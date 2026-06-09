@@ -33,10 +33,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`h-full antialiased`}
+      className={`h-full antialiased ${inter.variable} ${spaceGrotesk.variable}`}
       style={{
-        "--font-inter": inter.style.fontFamily,
-        "--font-space-grotesk": spaceGrotesk.style.fontFamily,
+        "--font-inter-custom": inter.style.fontFamily,
+        "--font-space-custom": spaceGrotesk.style.fontFamily,
       } as React.CSSProperties}
     >
       <body className="min-h-full flex flex-col bg-dark-base text-[#0F172A] dark:text-gray-100 select-none transition-colors duration-500">
