@@ -149,13 +149,12 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
             
             {/* Card 1: Multilingual Voice Core */}
             <motion.div
-              initial={{ opacity: 0, x: 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ 
-                x: { duration: 1.8, ease: [0.16, 1, 0.3, 1] },
-                opacity: { duration: 1.4 },
-                y: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+                opacity: { duration: 1.0 },
+                y: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
               }}
               whileHover={{ y: -6 }}
               onClick={() => setSelectedCard(0)}
@@ -204,13 +203,12 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
 
             {/* Card 2: Curriculum Mapping */}
             <motion.div
-              initial={{ opacity: 0, x: 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ 
-                x: { duration: 1.8, ease: [0.16, 1, 0.3, 1] },
-                opacity: { duration: 1.4 },
-                y: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+                opacity: { duration: 1.0, delay: 0.1 },
+                y: { duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }
               }}
               whileHover={{ y: -6 }}
               onClick={() => setSelectedCard(1)}
@@ -259,13 +257,12 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
 
             {/* Card 3: Pedagogical Lesson Planner */}
             <motion.div
-              initial={{ opacity: 0, x: 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ 
-                x: { duration: 1.8, ease: [0.16, 1, 0.3, 1] },
-                opacity: { duration: 1.4 },
-                y: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+                opacity: { duration: 1.0, delay: 0.2 },
+                y: { duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }
               }}
               whileHover={{ y: -6 }}
               onClick={() => setSelectedCard(2)}
@@ -314,13 +311,12 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
 
             {/* Card 4: Assessment & Worksheets */}
             <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ 
-                x: { duration: 1.8, ease: [0.16, 1, 0.3, 1] },
-                opacity: { duration: 1.4 },
-                y: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+                opacity: { duration: 1.0 },
+                y: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
               }}
               whileHover={{ y: -6 }}
               onClick={() => setSelectedCard(3)}
@@ -369,13 +365,12 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
 
             {/* Card 5: Offline-First PWA */}
             <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ 
-                x: { duration: 1.8, ease: [0.16, 1, 0.3, 1] },
-                opacity: { duration: 1.4 },
-                y: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+                opacity: { duration: 1.0, delay: 0.1 },
+                y: { duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }
               }}
               whileHover={{ y: -6 }}
               onClick={() => setSelectedCard(4)}
@@ -424,13 +419,12 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
 
             {/* Card 6: Institutional Scale */}
             <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ 
-                x: { duration: 1.8, ease: [0.16, 1, 0.3, 1] },
-                opacity: { duration: 1.4 },
-                y: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+                opacity: { duration: 1.0, delay: 0.2 },
+                y: { duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }
               }}
               whileHover={{ y: -6 }}
               onClick={() => setSelectedCard(5)}

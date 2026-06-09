@@ -72,8 +72,8 @@
   --surface-1: #F8FAFD;
   --surface-2: #FFFFFF;
 
-  --font-sans-custom: var(--font-inter-custom), system-ui, sans-serif;
-  --font-heading-custom: var(--font-inter-custom), system-ui, sans-serif;
+  --font-sans-custom: var(--font-inter), system-ui, sans-serif;
+  --font-heading-custom: var(--font-inter), system-ui, sans-serif;
   
   /* Smooth scroll settings */
   scroll-behavior: smooth;
@@ -93,8 +93,8 @@
   --premium-alabaster: #FDFCFA;
   --premium-ice: #F4F8FF;
 
-  --font-sans-custom: var(--font-inter-custom), system-ui, sans-serif;
-  --font-heading-custom: var(--font-space-custom), system-ui, sans-serif;
+  --font-sans-custom: var(--font-inter), system-ui, sans-serif;
+  --font-heading-custom: var(--font-space-grotesk), system-ui, sans-serif;
 }
 
 /* Tighten letters on headings & Inter font in Light Mode for premium SaaS feel */
