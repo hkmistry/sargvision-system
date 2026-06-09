@@ -149,7 +149,7 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
             
             {/* Card 1: Multilingual Voice Core */}
             <motion.div
-              initial={{ opacity: 0, x: 500 }}
+              initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ 
@@ -204,7 +204,7 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
 
             {/* Card 2: Curriculum Mapping */}
             <motion.div
-              initial={{ opacity: 0, x: 500 }}
+              initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ 
@@ -259,7 +259,7 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
 
             {/* Card 3: Pedagogical Lesson Planner */}
             <motion.div
-              initial={{ opacity: 0, x: 500 }}
+              initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ 
@@ -314,7 +314,7 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
 
             {/* Card 4: Assessment & Worksheets */}
             <motion.div
-              initial={{ opacity: 0, x: -500 }}
+              initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ 
@@ -369,7 +369,7 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
 
             {/* Card 5: Offline-First PWA */}
             <motion.div
-              initial={{ opacity: 0, x: -500 }}
+              initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ 
@@ -424,7 +424,7 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
 
             {/* Card 6: Institutional Scale */}
             <motion.div
-              initial={{ opacity: 0, x: -500 }}
+              initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ 
