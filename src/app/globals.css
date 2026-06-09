@@ -24,6 +24,7 @@
   --color-premium-vanilla: #FDFFF5;
 
   /* Typography Variables */
+  --font-sans: var(--font-sans-custom);
   --font-heading: var(--font-heading-custom);
 
   /* Micro-animations */
@@ -71,7 +72,7 @@
   --surface-1: #F8FAFD;
   --surface-2: #FFFFFF;
 
-  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-sans-custom: var(--font-inter), system-ui, sans-serif;
   --font-heading-custom: var(--font-inter), system-ui, sans-serif;
   
   /* Smooth scroll settings */
@@ -92,7 +93,7 @@
   --premium-alabaster: #FDFCFA;
   --premium-ice: #F4F8FF;
 
-  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-sans-custom: var(--font-inter), system-ui, sans-serif;
   --font-heading-custom: var(--font-space-grotesk), system-ui, sans-serif;
 }
 
