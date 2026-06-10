@@ -117,8 +117,9 @@ export default function Navbar() {
         {/* Brand Identity Logo - Left Column */}
         <div className="flex-1 flex justify-start items-center shrink-0">
           <Link href="/" className="select-none group block">
-            <span className="font-heading font-extrabold text-2xl lg:text-3xl tracking-[0.28em] group-hover:tracking-[0.34em] text-[#0F172A] dark:text-white transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] uppercase">
-              SARG<span className="text-[#0F172A] dark:text-cyan-400 font-black drop-shadow-[0_0_8px_rgba(6,182,212,0.35)] dark:drop-shadow-[0_0_8px_rgba(6,182,212,0.35)] group-hover:text-blue-600 dark:group-hover:text-cyan-300 transition-all duration-500 ease-out">VISION</span>
+            <span className="font-brand font-bold text-2xl lg:text-3xl tracking-[0.15em] group-hover:tracking-[0.2em] transition-all duration-500 ease-out uppercase select-none">
+              <span className="text-[#0F172A] dark:text-white">SARG</span>
+              <span className="text-[#2563EB] dark:text-blue-400">VISION</span>
             </span>
           </Link>
         </div>
@@ -134,24 +135,20 @@ export default function Navbar() {
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
                 className={cn(
-                  "relative py-1.5 px-3 text-xs lg:text-[13px] font-bold tracking-[0.15em] whitespace-nowrap transition-all duration-700 ease-out select-none group",
+                  "relative py-1.5 px-3 text-xs lg:text-[13px] font-inter font-medium tracking-[0.15em] whitespace-nowrap transition-all duration-500 ease-out select-none group",
                   isActive 
-                    ? "text-[#0F172A] dark:text-accent-cyan font-extrabold" 
-                    : "text-[#0F172A] dark:text-gray-300 hover:text-[#0F172A]/80 dark:hover:text-accent-cyan"
+                    ? "text-[#0F172A] dark:text-white font-semibold" 
+                    : "text-[#475569] dark:text-gray-400 hover:text-[#0F172A] dark:hover:text-white"
                 )}
               >
-                {/* Micro-glow backdrop reveal */}
-                <span className={cn(
-                  "absolute -inset-x-2 -inset-y-1.5 rounded-lg bg-accent-cyan/[0.01] border border-transparent transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none opacity-0 group-hover:opacity-100 group-hover:bg-accent-cyan/[0.02] group-hover:border-accent-cyan/[0.04]",
-                  isActive && "opacity-100 bg-accent-cyan/[0.03] border-accent-cyan/[0.08]"
-                )} />
-
                 <span className="relative z-10">{link.name}</span>
 
-                {/* Horizontal Gradient Glow underline */}
+                {/* Underline — bg-current inherits text color in all states, both themes */}
                 <span className={cn(
-                  "absolute bottom-0 left-3 right-3 h-[2px] bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-purple transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] origin-left opacity-0 group-hover:opacity-100 group-hover:scale-x-100 dark:shadow-[0_0_12px_rgba(6,182,212,0.8),0_0_16px_rgba(139,92,246,0.6)]",
-                  isActive ? "opacity-100 scale-x-100" : "scale-x-0"
+                  "absolute bottom-0 left-3 right-3 h-[1.5px] bg-current transition-all duration-300 ease-out origin-left",
+                  isActive
+                    ? "scale-x-100"
+                    : "scale-x-0 group-hover:scale-x-100"
                 )} />
               </Link>
             );
@@ -189,7 +186,7 @@ export default function Navbar() {
           >
             {isAudioOn ? (
               <>
-                <Volume2 className="w-4 h-4 text-[#0F172A] dark:text-accent-cyan animate-pulse" />
+                <Volume2 className="w-4 h-4 text-[#0F172A] dark:text-accent-cyan" />
                 <span className="text-[#0F172A] dark:text-accent-cyan">AUDIO ON</span>
               </>
             ) : (
@@ -203,7 +200,6 @@ export default function Navbar() {
           {/* System Online Status Element */}
           <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-[#06B6D4]/5 border border-[#06B6D4]/15 text-[10px] lg:text-[11px] font-bold text-[#0F172A] dark:text-accent-cyan select-none tracking-[0.12em] uppercase dark:shadow-[0_0_15px_rgba(6,182,212,0.08)] shadow-sm whitespace-nowrap">
             <span className="relative flex h-1.5 w-1.5 lg:h-2 lg:w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#06B6D4] opacity-75" style={{ animationDuration: '4s' }}></span>
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 lg:h-2 lg:w-2 bg-[#06B6D4]"></span>
             </span>
             <span>SYS.ONLINE</span>
@@ -231,7 +227,7 @@ export default function Navbar() {
                   setMobileMenuOpen(false);
                   handleLinkClick(e, link.href);
                 }}
-                className="text-sm font-heading font-bold tracking-widest text-[#0F172A] dark:text-gray-300 hover:text-[#0F172A]/80 dark:hover:text-accent-cyan border-b border-[#E2E8F0] dark:border-white/5 pb-2 transition-colors duration-300"
+                className="text-sm font-inter font-medium tracking-widest text-[#0F172A] dark:text-gray-300 hover:text-[#0F172A]/80 dark:hover:text-accent-cyan border-b border-[#E2E8F0] dark:border-white/5 pb-2 transition-colors duration-300"
               >
                 {link.name}
               </Link>
@@ -268,7 +264,7 @@ export default function Navbar() {
               <div className="flex items-center gap-1.5 text-[9px] font-bold tracking-wider text-[#64748B] dark:text-gray-400">
                 {isAudioOn ? (
                   <>
-                    <Volume2 className="w-3.5 h-3.5 text-accent-cyan animate-pulse" />
+                    <Volume2 className="w-3.5 h-3.5 text-accent-cyan" />
                     <span className="text-accent-cyan">AUDIO ON</span>
                   </>
                 ) : (
@@ -283,7 +279,6 @@ export default function Navbar() {
               <span className="text-[10px] font-bold text-[#64748B] dark:text-gray-400 tracking-wider">SYSTEM STATUS</span>
               <div className="flex items-center gap-1.5 text-[9px] text-accent-cyan font-bold tracking-wider">
                 <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-cyan opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent-cyan"></span>
                 </span>
                 SYS.ONLINE

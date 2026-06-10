@@ -46,9 +46,7 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
         }
       `}</style>
 
-      {/* Background glows */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[350px] h-[350px] bg-cyan-500/[0.02] rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 -translate-x-1/2 w-[400px] h-[400px] bg-purple-500/[0.015] rounded-full blur-[120px] pointer-events-none" />
+      {/* Background elements removed for enterprise aesthetic */}
 
       <motion.div
         initial={{ opacity: 0, y: 15 }}
@@ -66,22 +64,36 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="text-center space-y-4 mb-16 relative z-10 animate-fade-in"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-cyan-500/20 backdrop-blur-md text-[#2563EB] dark:text-cyan-400/80">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] dark:bg-cyan-400/80 animate-pulse" />
+            <div className={cn(
+              "inline-flex items-center gap-2 px-3 py-1 rounded-full backdrop-blur-md border",
+              theme === "dark"
+                ? "bg-white/5 border-blue-500/20 text-blue-400/80"
+                : "bg-slate-50 border-slate-200 text-[#2563EB]"
+            )}>
+              <span className={cn(
+                "w-1.5 h-1.5 rounded-full",
+                theme === "dark" ? "bg-blue-500/80" : "bg-[#2563EB]"
+              )} />
               <span className="text-[10px] font-bold uppercase tracking-widest font-mono">
-                SARGVISION Engagement Gateway
+                Institutional Engagement
               </span>
             </div>
 
-            <h2 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-[#0F172A] dark:text-white tracking-tight leading-tight text-center antialiased">
+            <h2 className={cn(
+              "font-editorial font-semibold text-3xl md:text-5xl lg:text-6xl tracking-tight leading-tight text-center antialiased",
+              theme === "dark" ? "text-white" : "text-[#0F172A]"
+            )}>
               Connect with{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] via-blue-500 to-[#4F46E5] dark:from-cyan-400 dark:via-blue-400 dark:to-purple-400 font-extrabold drop-shadow-[0_0_15px_rgba(6,182,212,0.35)]">
+              <span className={theme === "dark" ? "text-blue-400" : "text-[#2563EB]"}>
                 SARGVISION
               </span>
             </h2>
 
-            <p className="text-[#64748B] dark:text-gray-400 font-light text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-              Whether you're an institution, organization, business, government body, or potential partner, we'd love to hear from you and explore how we can work together.
+            <p className={cn(
+              "font-light text-sm md:text-base max-w-2xl mx-auto leading-relaxed",
+              theme === "dark" ? "text-neutral-400" : "text-[#64748B]"
+            )}>
+              Engage with SARGVISION to explore strategic partnerships, workforce development programs, sovereign AI infrastructure deployments, institutional collaborations, and national-scale intelligence initiatives.
             </p>
           </motion.div>
         )}
@@ -100,8 +112,8 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
             className={cn(
               "relative overflow-hidden rounded-[20px] p-8 md:p-10 transition-all duration-700 flex flex-col justify-between min-h-[480px] backdrop-blur-xl",
               theme === "dark"
-                ? "border-2 border-cyan-500/60 hover:border-cyan-400/80 bg-[#030712]/60 shadow-[0_0_28px_rgba(6,182,212,0.22),inset_0_0_20px_rgba(6,182,212,0.05)] hover:shadow-[0_0_55px_rgba(6,182,212,0.32)]"
-                : "bg-[rgba(255,255,255,0.85)] border-2 border-[#E2E8F0] shadow-[0_15px_40px_rgba(15,23,42,0.12)] hover:shadow-[0_25px_50px_rgba(15,23,42,0.18)] hover:-translate-y-1 hover:border-[#CBD5E1]"
+                ? "border border-slate-800 bg-[#030712]/60 shadow-lg"
+                : "bg-[rgba(255,255,255,0.85)] border border-[#E2E8F0] shadow-md"
             )}
           >
             <AnimatePresence mode="wait">
@@ -115,12 +127,12 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   className="py-16 flex flex-col justify-center items-center space-y-6 text-center select-none flex-grow"
                 >
-                  <div className="w-14 h-14 rounded-full bg-[#2563EB]/5 dark:bg-cyan-500/5 border border-[#2563EB]/25 dark:border-cyan-500/20 flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.05)]">
-                    <Check className="w-6 h-6 text-[#2563EB] dark:text-cyan-400/90" />
+                  <div className="w-14 h-14 rounded-full bg-[#2563EB]/5 dark:bg-blue-500/5 border border-[#2563EB]/25 dark:border-blue-500/20 flex items-center justify-center">
+                    <Check className="w-6 h-6 text-[#2563EB] dark:text-blue-400" />
                   </div>
 
                   <div className="space-y-2 max-w-sm">
-                    <h3 className="font-heading font-bold text-xl text-[#0F172A] dark:text-white tracking-tight">
+                    <h3 className="font-inter font-semibold text-xl text-[#0F172A] dark:text-white tracking-tight">
                       Message Sent Successfully
                     </h3>
                     <p className="text-xs text-[#64748B] dark:text-neutral-400 font-light leading-relaxed">
@@ -150,7 +162,7 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
 
                     {/* ENTER NAME */}
                     <div className="flex flex-col text-left space-y-3">
-                      <label className="text-[10px] md:text-xs font-medium tracking-wider text-[#64748B] uppercase font-sans select-none">
+                      <label className="text-[10px] md:text-xs font-medium tracking-wider text-[#64748B] uppercase font-inter font-regular select-none">
                         Enter Name
                       </label>
                       <input
@@ -160,16 +172,16 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                         className={cn(
-                          "w-full text-sm transition-all duration-300 px-4 py-3.5 focus:outline-none",
+                          "w-full text-sm transition-all duration-300 py-3.5 focus:outline-none",
                           theme === "dark"
                             ? cn(
-                                "bg-[#050814]/90 border rounded-xl text-neutral-200 placeholder-neutral-500 focus:border-cyan-500/60 focus:shadow-[0_0_15px_rgba(6,182,212,0.15)]",
+                                "px-4 bg-[#050814]/90 border rounded-xl text-neutral-200 placeholder-neutral-500 focus:border-blue-500/40",
                                 formState.name
-                                  ? "border-cyan-500/50 shadow-[0_0_12px_rgba(6,182,212,0.08)]"
+                                  ? "border-blue-500/30"
                                   : "border-white/10 hover:border-white/20"
                               )
                             : cn(
-                                "bg-transparent border-b border-[#E2E8F0] text-[#0F172A] placeholder-slate-400 focus:border-b-[#2563EB] focus:ring-0 rounded-none border-t-transparent border-l-transparent border-r-transparent",
+                                "px-0 bg-transparent border-b border-[#E2E8F0] text-[#0F172A] placeholder-slate-400 focus:border-b-[#2563EB] focus:ring-0 rounded-none border-t-transparent border-l-transparent border-r-transparent",
                                 formState.name ? "border-b-[#2563EB]" : "border-b-[#E2E8F0]"
                               )
                         )}
@@ -178,7 +190,7 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
 
                     {/* PROVIDE EMAIL */}
                     <div className="flex flex-col text-left space-y-3">
-                      <label className="text-[10px] md:text-xs font-medium tracking-wider text-[#64748B] uppercase font-sans select-none">
+                      <label className="text-[10px] md:text-xs font-medium tracking-wider text-[#64748B] uppercase font-inter font-regular select-none">
                         Provide Email
                       </label>
                       <input
@@ -188,16 +200,16 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                         className={cn(
-                          "w-full text-sm transition-all duration-300 px-4 py-3.5 focus:outline-none",
+                          "w-full text-sm transition-all duration-300 py-3.5 focus:outline-none",
                           theme === "dark"
                             ? cn(
-                                "bg-[#050814]/90 border rounded-xl text-neutral-200 placeholder-neutral-500 focus:border-cyan-500/60 focus:shadow-[0_0_15px_rgba(6,182,212,0.15)]",
+                                "px-4 bg-[#050814]/90 border rounded-xl text-neutral-200 placeholder-neutral-500 focus:border-blue-500/40",
                                 formState.email
-                                  ? "border-cyan-500/50 shadow-[0_0_12px_rgba(6,182,212,0.08)]"
+                                  ? "border-blue-500/30"
                                   : "border-white/10 hover:border-white/20"
                               )
                             : cn(
-                                "bg-transparent border-b border-[#E2E8F0] text-[#0F172A] placeholder-slate-400 focus:border-b-[#2563EB] focus:ring-0 rounded-none border-t-transparent border-l-transparent border-r-transparent",
+                                "px-0 bg-transparent border-b border-[#E2E8F0] text-[#0F172A] placeholder-slate-400 focus:border-b-[#2563EB] focus:ring-0 rounded-none border-t-transparent border-l-transparent border-r-transparent",
                                 formState.email ? "border-b-[#2563EB]" : "border-b-[#E2E8F0]"
                               )
                         )}
@@ -206,7 +218,7 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
 
                     {/* COMPOSE MESSAGE */}
                     <div className="flex flex-col text-left space-y-3">
-                      <label className="text-[10px] md:text-xs font-medium tracking-wider text-[#64748B] uppercase font-sans select-none">
+                      <label className="text-[10px] md:text-xs font-medium tracking-wider text-[#64748B] uppercase font-inter font-regular select-none">
                         Compose Message
                       </label>
                       <textarea
@@ -215,16 +227,16 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
                         value={formState.message}
                         onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                         className={cn(
-                          "w-full text-sm transition-all duration-300 px-4 py-3.5 focus:outline-none resize-none h-36 md:h-44",
+                          "w-full text-sm transition-all duration-300 py-3.5 focus:outline-none resize-none h-36 md:h-44",
                           theme === "dark"
                             ? cn(
-                                "bg-[#050814]/90 border rounded-xl text-neutral-200 placeholder-neutral-500 focus:border-cyan-500/60 focus:shadow-[0_0_15px_rgba(6,182,212,0.15)]",
+                                "px-4 bg-[#050814]/90 border rounded-xl text-neutral-200 placeholder-neutral-500 focus:border-blue-500/40",
                                 formState.message
-                                  ? "border-cyan-500/50 shadow-[0_0_12px_rgba(6,182,212,0.08)]"
+                                  ? "border-blue-500/30"
                                   : "border-white/10 hover:border-white/20"
                               )
                             : cn(
-                                "bg-transparent border-b border-[#E2E8F0] text-[#0F172A] placeholder-slate-400 focus:border-b-[#2563EB] focus:ring-0 rounded-none border-t-transparent border-l-transparent border-r-transparent",
+                                "px-0 bg-transparent border-b border-[#E2E8F0] text-[#0F172A] placeholder-slate-400 focus:border-b-[#2563EB] focus:ring-0 rounded-none border-t-transparent border-l-transparent border-r-transparent",
                                 formState.message ? "border-b-[#2563EB]" : "border-b-[#E2E8F0]"
                               )
                         )}
@@ -239,15 +251,15 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
                       type="submit"
                       disabled={isTransmitting}
                       className={cn(
-                        "w-full py-3.5 rounded-xl border font-sans text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-300 ease-in-out hover:-translate-y-[1px] flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]",
+                        "w-full py-3.5 rounded-xl border font-inter font-regular text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-300 ease-in-out hover:-translate-y-[1px] flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]",
                         isTransmitting ? "pointer-events-none opacity-80" : "",
                         formState.name && formState.email && formState.message
                           ? theme === "dark"
-                            ? "border-cyan-400 bg-gradient-to-r from-cyan-500 via-cyan-400 to-blue-500 text-neutral-950 shadow-[0_0_20px_rgba(6,182,212,0.25)] hover:from-cyan-400 hover:to-blue-400 hover:shadow-[0_0_30px_rgba(6,182,212,0.45)]"
-                            : "border-transparent bg-gradient-to-r from-[#2563EB] to-[#4F46E5] text-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] hover:opacity-95 hover:shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1)]"
+                            ? "border-blue-500 bg-blue-600 text-white shadow-md hover:bg-blue-500"
+                            : "border-transparent bg-gradient-to-r from-[#2563EB] to-[#4F46E5] text-white shadow-md hover:opacity-95"
                           : theme === "dark"
-                          ? "border-cyan-500/45 bg-gradient-to-r from-cyan-950/40 via-[#051124]/90 to-cyan-950/30 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400 hover:shadow-[0_0_22px_rgba(6,182,212,0.2),inset_0_0_12px_rgba(6,182,212,0.05)]"
-                          : "border-slate-200 bg-slate-50 text-slate-400 hover:bg-slate-100 hover:border-slate-300"
+                          ? "border-slate-800 bg-[#051124]/90 text-slate-500"
+                          : "border-slate-200 bg-slate-50 text-slate-400"
                       )}
                     >
                       {isTransmitting ? (
@@ -280,8 +292,8 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
             className={cn(
               "relative z-10 flex overflow-hidden rounded-[24px] transition-all duration-700 lg:translate-x-2 lg:scale-[1.02] min-h-[460px] lg:min-h-0 w-full backdrop-blur-xl",
               theme === "dark"
-                ? "border-2 border-cyan-500/60 hover:border-cyan-400/80 bg-[#02040a]/80 shadow-[0_0_28px_rgba(6,182,212,0.22),inset_0_0_20px_rgba(6,182,212,0.05)] hover:shadow-[0_0_55px_rgba(6,182,212,0.32)]"
-                : "bg-white/50 border border-[#E2E8F0] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] p-2"
+                ? "border border-slate-800 bg-[#02040a]/80 shadow-lg"
+                : "bg-white/50 border border-[#E2E8F0] shadow-md p-2"
             )}
           >
             {/* Robot video — fully edge-to-edge */}
@@ -295,13 +307,12 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
                 className="w-full h-full object-cover"
               />
 
-              {/* Cyan Pulse — Concierge Awake/Listening indicator */}
-              <div className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 bg-neutral-950/70 backdrop-blur-sm px-2.5 py-1 rounded-full border border-cyan-500/20 select-none pointer-events-none">
+              {/* Blue indicator — Concierge status */}
+              <div className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 bg-neutral-950/70 backdrop-blur-sm px-2.5 py-1 rounded-full border border-blue-500/20 select-none pointer-events-none">
                 <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
                 </span>
-                <span className="text-[6px] font-mono text-cyan-400 uppercase tracking-widest">CONCIERGE_ENGAGED</span>
+                <span className="text-[6px] font-mono text-blue-400 uppercase tracking-widest">SECURE COMMUNICATION CHANNEL</span>
               </div>
             </div>
           </motion.div>
@@ -317,26 +328,27 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-32 mb-6 w-full text-center space-y-8 relative select-none"
         >
-          {/* Volumetric backdrop glow */}
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 w-[600px] h-[280px] bg-gradient-to-r from-cyan-500/[0.03] via-purple-500/[0.015] to-blue-500/[0.03] rounded-full blur-[90px] pointer-events-none select-none" />
+          {/* Volumetric backdrop glow removed for a cleaner look */}
 
-          <h3 className="font-heading font-light text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-b from-premium-ice via-premium-grey to-premium-slate tracking-tight leading-relaxed max-w-3xl mx-auto antialiased">
+          <h3 className={cn(
+            "font-editorial font-semibold text-2xl sm:text-3xl tracking-tight leading-relaxed max-w-3xl mx-auto text-center antialiased",
+            theme === "dark" ? "text-white" : "text-[#0F172A]"
+          )}>
             "We do not merely build technology. <br className="hidden sm:inline" />
             We architect the{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] via-blue-500 to-[#4F46E5] dark:from-cyan-400 dark:via-cyan-300 dark:to-blue-400 font-medium tracking-wide drop-shadow-[0_0_12px_rgba(34,211,238,0.25)]">
+            <span className={theme === "dark" ? "text-blue-400" : "text-[#2563EB]"}>
               sovereign foundations
             </span>{" "}
             of tomorrow's intelligence."
           </h3>
 
           <div className="space-y-2.5 relative z-10 pt-4 flex flex-col items-center">
-            <div className="font-heading font-bold text-sm text-[#2563EB] dark:text-cyan-400 tracking-[0.35em] uppercase drop-shadow-[0_0_8px_rgba(6,182,212,0.4)] select-none">
+            <div className="font-inter font-semibold text-sm text-[#2563EB] dark:text-blue-400 tracking-[0.35em] uppercase select-none">
               SARGVISION
             </div>
             <div className="font-mono text-[8px] sm:text-[9px] text-neutral-400 tracking-[0.18em] uppercase flex items-center justify-center gap-2 select-none">
-              <span className="text-neutral-700 font-mono text-[8px]">•</span>
               <span className="flex items-center gap-1.5 text-[#64748B] dark:text-neutral-400">
-                <span className="inline-block w-1 h-1 rounded-full bg-[#2563EB] dark:bg-cyan-400 animate-pulse shadow-[0_0_4px_rgba(34,211,238,0.5)]" />
+                <span className="inline-block w-1 h-1 rounded-full bg-[#2563EB] dark:bg-blue-400" />
                 Building intelligent infrastructure for the future
               </span>
             </div>

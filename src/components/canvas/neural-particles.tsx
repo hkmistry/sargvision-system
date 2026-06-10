@@ -38,9 +38,8 @@ export default function NeuralParticles() {
     // Color selections for deep-tech atmosphere
     const colors = theme === "dark"
       ? [
-          "rgba(6, 182, 212, 0.4)",  // Accent Cyan
-          "rgba(139, 92, 246, 0.4)", // Accent Purple
-          "rgba(59, 130, 246, 0.3)",  // Accent Blue
+          "rgba(148, 163, 184, 0.12)",  // Muted Slate Node
+          "rgba(99, 102, 241, 0.10)",   // Muted Indigo Node
         ]
       : [
           "rgba(148, 163, 184, 0.15)", // stroke-[#94A3B8] opacity-15
@@ -91,18 +90,16 @@ export default function NeuralParticles() {
 
         // Calculate dynamic breathing state
         const timeFactor = Date.now() * 0.0003;
-        const breathingAlpha = 0.12 + Math.sin(timeFactor + i * 0.15) * 0.10;
+        const breathingAlpha = 0.06 + Math.sin(timeFactor + i * 0.15) * 0.04;
         const dynamicColor = p.color.replace(/[\d.]+\)$/, breathingAlpha.toFixed(3) + ")");
 
         // Render nodes
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = dynamicColor;
-        // Radial bloom glow
-        ctx.shadowBlur = 5;
-        ctx.shadowColor = dynamicColor;
+        // Radial bloom glow disabled for institutional-grade stability
+        ctx.shadowBlur = 0;
         ctx.fill();
-        ctx.shadowBlur = 0; // Reset
 
         // Render spiderweb connecting lines
         for (let j = i + 1; j < particles.length; j++) {
@@ -112,7 +109,7 @@ export default function NeuralParticles() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < connectionDistance) {
-            const alpha = (1 - dist / connectionDistance) * 0.18;
+            const alpha = (1 - dist / connectionDistance) * 0.06;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
@@ -139,7 +136,7 @@ export default function NeuralParticles() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(mouseRef.current.x, mouseRef.current.y);
-            ctx.strokeStyle = theme === "dark" ? `rgba(6, 182, 212, ${alpha})` : `rgba(148, 163, 184, ${alpha * 0.55})`;
+            ctx.strokeStyle = theme === "dark" ? `rgba(148, 163, 184, ${alpha * 0.4})` : `rgba(148, 163, 184, ${alpha * 0.55})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
@@ -173,7 +170,7 @@ export default function NeuralParticles() {
       document.removeEventListener("mouseleave", handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [theme]);
 
   return (
     <canvas

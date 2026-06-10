@@ -9,8 +9,8 @@ export default function Footer() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    const element = document.getElementById("contact-gate");
+  const handleScrollTo = (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const element = document.getElementById(id);
     if (element) {
       e.preventDefault();
       element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -19,12 +19,12 @@ export default function Footer() {
 
   /* ── Shared token shortcuts ── */
   const columnHeading = cn(
-    "text-xs font-bold tracking-[0.15em] uppercase select-none",
+    "font-editorial font-semibold text-sm tracking-wide select-none",
     isDark ? "text-white" : "text-[#0F172A]"
   );
 
   const navLink = cn(
-    "text-xs font-light py-0.5 inline-block transition-colors duration-300",
+    "text-xs font-normal py-0.5 inline-block transition-colors duration-300",
     isDark
       ? "text-white/40 hover:text-cyan-400"
       : "text-[#64748B] hover:text-[#2563EB]"
@@ -54,7 +54,7 @@ export default function Footer() {
             <Link href="/" className="group w-max select-none block">
               <span
                 className={cn(
-                  "font-heading font-extrabold text-xl tracking-[0.1em] block",
+                  "font-editorial font-semibold text-xl tracking-wide block",
                   isDark ? "text-white" : "text-[#0F172A]"
                 )}
               >
@@ -63,54 +63,94 @@ export default function Footer() {
             </Link>
             <p
               className={cn(
-                "text-xs leading-relaxed font-light antialiased max-w-[240px]",
+                "text-xs leading-relaxed font-normal antialiased max-w-[240px]",
                 isDark ? "text-white/40" : "text-[#64748B]"
               )}
             >
-              Building sovereign intelligence infrastructure for Bharat and beyond.
+              Building sovereign intelligence infrastructure for Bharat.
             </p>
           </div>
 
-          {/* Column 2: PLATFORM */}
+          {/* Column 2: INFRASTRUCTURE */}
           <div className="space-y-4">
-            <h4 className={columnHeading}>Platform</h4>
+            <h4 className={columnHeading}>Infrastructure</h4>
             <ul className="space-y-2.5">
-              <li><Link href="/sahayakai" className={navLink}>SahayakAI</Link></li>
-              <li><Link href="/labs"      className={navLink}>Autonomous Agents</Link></li>
-              <li><Link href="/research"  className={navLink}>Edge Compute</Link></li>
-              <li><Link href="/solutions" className={navLink}>Strategic Verticals</Link></li>
+              <li>
+                <Link href="/#sahayak" onClick={handleScrollTo("sahayak")} className={navLink}>
+                  SahayakAI
+                </Link>
+              </li>
+              <li>
+                <Link href="/#human-capital" onClick={handleScrollTo("human-capital")} className={navLink}>
+                  Human Capital Infrastructure
+                </Link>
+              </li>
+              <li>
+                <Link href="/#physical-lab" onClick={handleScrollTo("physical-lab")} className={navLink}>
+                  Physical Intelligence Lab
+                </Link>
+              </li>
+              <li>
+                <Link href="/#strategic-verticals" onClick={handleScrollTo("strategic-verticals")} className={navLink}>
+                  Strategic Systems
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Column 3: COMPANY */}
+          {/* Column 3: ORGANIZATION */}
           <div className="space-y-4">
-            <h4 className={columnHeading}>Company</h4>
+            <h4 className={columnHeading}>Organization</h4>
             <ul className="space-y-2.5">
-              <li><Link href="/"        className={navLink}>Home</Link></li>
-              <li><Link href="/vision"  className={navLink}>Vision</Link></li>
-              <li><Link href="/careers" className={navLink}>Careers</Link></li>
+              <li><Link href="/" className={navLink}>Home</Link></li>
               <li>
-                <Link
-                  href="/contact"
-                  onClick={handleContactClick}
-                  className={navLink}
-                >
+                <Link href="/#manifesto" onClick={handleScrollTo("manifesto")} className={navLink}>
+                  Founding Doctrine
+                </Link>
+              </li>
+              <li>
+                <Link href="/#strategic-verticals" onClick={handleScrollTo("strategic-verticals")} className={navLink}>
+                  Mission Briefing
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contact-gate" onClick={handleScrollTo("contact-gate")} className={navLink}>
                   Contact
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: RESOURCES */}
+          {/* Column 4: GOVERNANCE */}
           <div className="space-y-4">
-            <h4 className={columnHeading}>Resources</h4>
+            <h4 className={columnHeading}>Governance</h4>
             <ul className="space-y-2.5">
-              <li><Link href="/contact" className={navLink}>Privacy Policy</Link></li>
-              <li><Link href="/contact" className={navLink}>Terms of Use</Link></li>
-              <li><Link href="/contact" className={navLink}>Security</Link></li>
+              <li>
+                <Link href="/#contact-gate" onClick={handleScrollTo("contact-gate")} className={navLink}>
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contact-gate" onClick={handleScrollTo("contact-gate")} className={navLink}>
+                  Terms of Use
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contact-gate" onClick={handleScrollTo("contact-gate")} className={navLink}>
+                  Security & Compliance
+                </Link>
+              </li>
             </ul>
           </div>
 
+        </div>
+
+        {/* ── COMPLIANCE SIGNATURE FOOTNOTE ── */}
+        <div className={cn(
+          "w-full text-center pb-6 text-[8px] sm:text-[9px] font-mono tracking-[0.25em] uppercase select-none opacity-40",
+          isDark ? "text-neutral-400" : "text-slate-500"
+        )}>
+          Sovereign Data Principles • Privacy by Design • Infrastructure First
         </div>
 
         {/* ═══════════════════════════════════════════
@@ -138,10 +178,10 @@ export default function Footer() {
           >
             <span
               className={cn(
-                "w-1.5 h-1.5 rounded-full animate-pulse",
+                "w-1.5 h-1.5 rounded-full",
                 isDark
-                  ? "bg-cyan-400 shadow-[0_0_6px_rgba(34,211,238,0.5)]"
-                  : "bg-[#2563EB] shadow-[0_0_6px_rgba(37,99,235,0.4)]"
+                  ? "bg-cyan-400"
+                  : "bg-[#2563EB]"
               )}
             />
             <span>NATIONAL GRID ONLINE</span>

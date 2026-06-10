@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useTheme } from "@/components/theme-provider";
 
 interface LockTarget {
   x: number;
@@ -14,6 +15,9 @@ interface LockTarget {
 type CursorState = "default" | "card" | "button" | "button-large" | "link" | "robot" | "robot-tight";
 
 export default function CustomCursor() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   const [cursorState, setCursorState] = useState<CursorState>("default");
   const [lockTarget, setLockTarget] = useState<LockTarget | null>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -43,27 +47,18 @@ export default function CustomCursor() {
   const ringY = useSpring(ringTargetY, springOptions);
 
   useEffect(() => {
-    // Reveal cursor only on client-side pointer movement
     const handlePointerMove = (e: PointerEvent) => {
       if (!isVisible) setIsVisible(true);
-
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-
-      // Decouple tracking ring position if locked onto a button
       if (!lockTargetRef.current) {
         ringTargetX.set(e.clientX);
         ringTargetY.set(e.clientY);
       }
     };
 
-    const handleMouseLeave = () => {
-      setIsVisible(false);
-    };
-
-    const handleMouseEnter = () => {
-      setIsVisible(true);
-    };
+    const handleMouseLeave = () => setIsVisible(false);
+    const handleMouseEnter = () => setIsVisible(true);
 
     window.addEventListener("pointermove", handlePointerMove);
     document.addEventListener("mouseleave", handleMouseLeave);
@@ -76,13 +71,11 @@ export default function CustomCursor() {
     };
   }, [isVisible]);
 
-  // Global mouseover context listener
   useEffect(() => {
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (!target) return;
 
-      // Classify hovering targets
       const button = target.closest("button, [role='button'], .cursor-button") as HTMLElement;
       const link = target.closest("a, .cursor-link") as HTMLElement;
       const card = target.closest(".glowing-card, [data-cursor='card']") as HTMLElement;
@@ -99,9 +92,8 @@ export default function CustomCursor() {
         setLockTarget(null);
       } else if (button) {
         const rect = button.getBoundingClientRect();
-        // Skip magnetic center-locking for large buttons/cards to maintain smooth pointer tracking
         const isLarge = rect.width > 120 || rect.height > 60 || button.getAttribute("data-cursor-lock") === "false";
-        
+
         if (isLarge) {
           setCursorState("button-large");
           setLockTarget(null);
@@ -131,7 +123,6 @@ export default function CustomCursor() {
     };
 
     const handleScroll = () => {
-      // Recalculate target boundaries dynamically on scroll to prevent cursor frame decoupling
       if (activeElementRef.current && cursorStateRef.current === "button") {
         const rect = activeElementRef.current.getBoundingClientRect();
         const newLock = {
@@ -158,26 +149,49 @@ export default function CustomCursor() {
 
   if (!isVisible) return null;
 
-  // Determine Tracking Ring visual styling based on contextual states
-  const getRingStyle = () => {
+  // ─── Neutral, institutional color palette ─────────────────────────────────
+  // No cyan. No neon. No glow. Pure precision.
+  const ring = {
+    // Light mode: dark slate rings at varying opacity
+    light: {
+      default:     "rgba(15, 23, 42, 0.30)",
+      card:        "rgba(15, 23, 42, 0.40)",
+      link:        "rgba(15, 23, 42, 0.55)",
+      button:      "rgba(15, 23, 42, 0.45)",
+      buttonLarge: "rgba(15, 23, 42, 0.45)",
+    },
+    // Dark mode: white rings at varying opacity
+    dark: {
+      default:     "rgba(255, 255, 255, 0.35)",
+      card:        "rgba(255, 255, 255, 0.45)",
+      link:        "rgba(255, 255, 255, 0.60)",
+      button:      "rgba(255, 255, 255, 0.50)",
+      buttonLarge: "rgba(255, 255, 255, 0.50)",
+    },
+  };
+
+  const palette = isDark ? ring.dark : ring.light;
+
+  // ─── Ring geometry per cursor state ──────────────────────────────────────
+  const getRingStyle = (): React.CSSProperties => {
     switch (cursorState) {
       case "card":
         return {
           width: 26,
           height: 26,
           borderRadius: "50%",
-          borderColor: "rgba(6, 182, 212, 0.5)",
+          borderColor: palette.card,
           borderWidth: "1px",
-          boxShadow: "0 0 10px rgba(6, 182, 212, 0.15)",
+          borderStyle: "solid",
         };
       case "link":
         return {
           width: 14,
           height: 14,
           borderRadius: "50%",
-          borderColor: "rgba(6, 182, 212, 0.8)",
+          borderColor: palette.link,
           borderWidth: "1px",
-          boxShadow: "0 0 8px rgba(6, 182, 212, 0.25)",
+          borderStyle: "solid",
         };
       case "button":
         if (lockTarget) {
@@ -185,9 +199,9 @@ export default function CustomCursor() {
             width: lockTarget.width + 12,
             height: lockTarget.height + 12,
             borderRadius: lockTarget.borderRadius,
-            borderColor: "rgba(6, 182, 212, 0.65)",
+            borderColor: palette.button,
             borderWidth: "1px",
-            boxShadow: "0 0 14px rgba(6, 182, 212, 0.2)",
+            borderStyle: "solid",
           };
         }
         return {};
@@ -196,13 +210,12 @@ export default function CustomCursor() {
           width: 28,
           height: 28,
           borderRadius: "50%",
-          borderColor: "rgba(6, 182, 212, 0.75)",
+          borderColor: palette.buttonLarge,
           borderWidth: "1px",
-          boxShadow: "0 0 10px rgba(6, 182, 212, 0.2)",
+          borderStyle: "solid",
         };
       case "robot":
       case "robot-tight":
-        // tracking brackets, outer ring fades out (replaced by inner crosshair brackets)
         return {
           width: cursorState === "robot-tight" ? 16 : 24,
           height: cursorState === "robot-tight" ? 16 : 24,
@@ -215,17 +228,22 @@ export default function CustomCursor() {
           width: 18,
           height: 18,
           borderRadius: "50%",
-          borderColor: "rgba(6, 182, 212, 0.35)",
+          borderColor: palette.default,
           borderWidth: "1px",
+          borderStyle: "solid",
         };
     }
   };
 
   const isRobotMode = cursorState === "robot" || cursorState === "robot-tight";
 
+  // Robot zone (observation chamber) is always dark regardless of page theme —
+  // brackets must always be white to be visible on that dark surface.
+  const bracketColor = "rgba(255,255,255,0.50)";
+
   return (
     <>
-      {/* Self-contained CSS sheet to cleanly hide native system cursors on interactive targets */}
+      {/* Hide native system cursors */}
       <style>{`
         html, body {
           cursor: none !important;
@@ -242,24 +260,24 @@ export default function CustomCursor() {
         transition={{ type: "tween", ease: "linear", duration: 0 }}
       >
         <div className="relative flex items-center justify-center">
-          {/* 4px-6px Crisp Core with Breathing Pulse */}
-          <div className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#06b6d4] transition-all duration-300 relative z-10" />
-
-          {/* Micro Telemetry Focus Indicator for Robot Mode */}
-          {isRobotMode && (
-            <div 
-              className={`absolute w-3.5 h-3.5 rounded-full border border-dashed border-accent-cyan/60 pointer-events-none transition-all duration-700 ${
-                cursorState === "robot-tight" ? "scale-105 opacity-100" : "scale-75 opacity-40"
-              }`}
-              style={{
-                animation: "spin 12s linear infinite",
-              }}
-            />
-          )}
+          {/*
+            White dot universally — visible on dark backgrounds.
+            On light backgrounds: a subtle dark outline (box-shadow) creates contrast
+            without using a dark fill that looks harsh.
+          */}
+          <div
+            className="w-1.5 h-1.5 rounded-full transition-colors duration-300 relative z-10"
+            style={{
+              backgroundColor: "#ffffff",
+              boxShadow: isDark
+                ? "0 0 0 1px rgba(255,255,255,0.15)"
+                : "0 0 0 1px rgba(15,23,42,0.25)",
+            }}
+          />
         </div>
       </motion.div>
 
-      {/* B. Outer Tracking Ring / Lock-on Brackets */}
+      {/* B. Outer Tracking Ring */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
         style={{ x: ringX, y: ringY }}
@@ -267,21 +285,15 @@ export default function CustomCursor() {
       >
         <div
           className="relative transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-center"
-          style={{
-            ...getRingStyle(),
-          }}
+          style={{ ...getRingStyle() }}
         >
-          {/* Precision Tracking Brackets in Robot Mode */}
+          {/* Precision Inspection Brackets in Robot Mode — desaturated */}
           {isRobotMode && (
             <div className="absolute inset-0">
-              {/* Corner 1: Top-Left */}
-              <span className="absolute top-0 left-0 w-1.5 h-1.5 border-t border-l border-accent-cyan/85 transition-transform duration-500" />
-              {/* Corner 2: Top-Right */}
-              <span className="absolute top-0 right-0 w-1.5 h-1.5 border-t border-r border-accent-cyan/85 transition-transform duration-500" />
-              {/* Corner 3: Bottom-Left */}
-              <span className="absolute bottom-0 left-0 w-1.5 h-1.5 border-b border-l border-accent-cyan/85 transition-transform duration-500" />
-              {/* Corner 4: Bottom-Right */}
-              <span className="absolute bottom-0 right-0 w-1.5 h-1.5 border-b border-r border-accent-cyan/85 transition-transform duration-500" />
+              <span className="absolute top-0 left-0 w-1.5 h-1.5 border-t border-l transition-transform duration-500" style={{ borderColor: bracketColor }} />
+              <span className="absolute top-0 right-0 w-1.5 h-1.5 border-t border-r transition-transform duration-500" style={{ borderColor: bracketColor }} />
+              <span className="absolute bottom-0 left-0 w-1.5 h-1.5 border-b border-l transition-transform duration-500" style={{ borderColor: bracketColor }} />
+              <span className="absolute bottom-0 right-0 w-1.5 h-1.5 border-b border-r transition-transform duration-500" style={{ borderColor: bracketColor }} />
             </div>
           )}
         </div>

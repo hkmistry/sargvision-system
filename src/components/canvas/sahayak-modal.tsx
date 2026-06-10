@@ -63,8 +63,8 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
             className={cn(
               "relative w-full max-w-2xl p-[1.5px] rounded-2xl overflow-hidden z-10 select-none flex flex-col justify-between transition-all duration-500",
               theme === "dark"
-                ? "bg-gradient-to-r from-cyan-500 via-blue-500 to-violet-600 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.95)]"
-                : "bg-gradient-to-r from-[#2563EB] via-blue-500 to-[#4F46E5] shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
+                ? "bg-gradient-to-r from-blue-500/20 to-indigo-500/10 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.95)]"
+                : "bg-gradient-to-r from-[#2563EB]/25 to-slate-200 shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
             )}
           >
             {/* Inner Container with solid background */}
@@ -90,12 +90,12 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
                     exit={{ opacity: 0, y: -10 }}
                     className="p-8 md:p-10 flex flex-col justify-center items-center text-center space-y-6 my-8 animate-fade-in"
                   >
-                    <div className="w-14 h-14 rounded-full bg-[#2563EB]/5 dark:bg-cyan-500/5 border border-[#2563EB]/25 dark:border-cyan-500/20 flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.1)]">
-                      <Check className="w-6 h-6 text-[#2563EB] dark:text-cyan-400" />
+                    <div className="w-14 h-14 rounded-full bg-[#2563EB]/5 dark:bg-blue-500/5 border border-[#2563EB]/25 dark:border-blue-500/20 flex items-center justify-center">
+                      <Check className="w-6 h-6 text-[#2563EB] dark:text-blue-400" />
                     </div>
                     
                     <div className="space-y-3 max-w-md">
-                      <div className="font-mono text-[9px] text-[#2563EB] dark:text-cyan-500 tracking-[0.2em] uppercase">
+                      <div className="font-mono text-[9px] text-[#2563EB] dark:text-blue-500 tracking-[0.2em] uppercase">
                         NODE INITIALIZATION INITIATED
                       </div>
                       <h3 className="font-heading font-extrabold text-2xl text-[#0F172A] dark:text-white tracking-tight">
@@ -109,7 +109,7 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
                     <div className="bg-slate-50 dark:bg-[#050814]/80 border border-slate-200 dark:border-white/5 rounded-xl p-4 w-full max-w-sm text-left font-mono text-[10px] text-slate-500 dark:text-white/30 space-y-1">
                       <div className="flex justify-between">
                         <span>DEPLOY_STATUS</span>
-                        <span className="text-[#2563EB] dark:text-cyan-400 font-medium">STAGING</span>
+                        <span className="text-[#2563EB] dark:text-blue-400 font-medium">STAGING</span>
                       </div>
                       <div className="flex justify-between">
                         <span>QUEUE_POSITION</span>
@@ -135,7 +135,7 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
                     {/* Header Area */}
                     <div className="p-6 md:p-8 border-b border-slate-100 dark:border-white/[0.06] space-y-3.5 relative z-20">
                       <div className="flex items-center justify-between select-none">
-                        <span className="font-mono text-[9px] font-bold text-[#2563EB] dark:text-cyan-400/80 tracking-[0.25em] uppercase">
+                        <span className="font-mono text-[9px] font-bold text-[#2563EB] dark:text-blue-400/80 tracking-[0.25em] uppercase">
                           SAHAYAKAI DEPLOYMENT PROTOCOL
                         </span>
                       </div>
@@ -169,9 +169,9 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
                               "w-full text-xs transition-all duration-200 px-4 py-2.5 focus:outline-none",
                               theme === "dark" 
                                 ? cn(
-                                    "bg-[#050814]/90 border rounded-xl text-neutral-200 placeholder-neutral-500 focus:border-cyan-500/60 focus:shadow-[0_0_15px_rgba(6,182,212,0.15)]",
+                                    "bg-[#050814]/90 border rounded-xl text-neutral-200 placeholder-neutral-500 focus:border-blue-500/40",
                                     formState.name 
-                                      ? 'border-cyan-500/50 shadow-[0_0_12px_rgba(6,182,212,0.08)]' 
+                                      ? 'border-blue-500/30' 
                                       : 'border-white/10 hover:border-white/20'
                                   )
                                 : cn(
@@ -197,9 +197,9 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
                               "w-full text-xs transition-all duration-200 px-4 py-2.5 focus:outline-none",
                               theme === "dark" 
                                 ? cn(
-                                    "bg-[#050814]/90 border rounded-xl text-neutral-200 placeholder-neutral-500 focus:border-cyan-500/60 focus:shadow-[0_0_15px_rgba(6,182,212,0.15)]",
+                                    "bg-[#050814]/90 border rounded-xl text-neutral-200 placeholder-neutral-500 focus:border-blue-500/40",
                                     formState.email 
-                                      ? 'border-cyan-500/50 shadow-[0_0_12px_rgba(6,182,212,0.08)]' 
+                                      ? 'border-blue-500/30' 
                                       : 'border-white/10 hover:border-white/20'
                                   )
                                 : cn(
@@ -227,9 +227,9 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
                               "w-full text-xs transition-all duration-200 px-4 py-2.5 focus:outline-none",
                               theme === "dark" 
                                 ? cn(
-                                    "bg-[#050814]/90 border rounded-xl text-neutral-200 placeholder-neutral-500 focus:border-cyan-500/60 focus:shadow-[0_0_15px_rgba(6,182,212,0.15)]",
+                                    "bg-[#050814]/90 border rounded-xl text-neutral-200 placeholder-neutral-500 focus:border-blue-500/40",
                                     formState.organization 
-                                      ? 'border-cyan-500/50 shadow-[0_0_12px_rgba(6,182,212,0.08)]' 
+                                      ? 'border-blue-500/30' 
                                       : 'border-white/10 hover:border-white/20'
                                   )
                                 : cn(
@@ -291,9 +291,9 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
                               "w-full text-xs transition-all duration-200 px-4 py-2.5 focus:outline-none resize-none h-28",
                               theme === "dark" 
                                 ? cn(
-                                    "bg-[#050814]/90 border rounded-xl text-neutral-200 placeholder-neutral-500 focus:border-cyan-500/60 focus:shadow-[0_0_15px_rgba(6,182,212,0.15)]",
+                                    "bg-[#050814]/90 border rounded-xl text-neutral-200 placeholder-neutral-500 focus:border-blue-500/40",
                                     formState.requirements 
-                                      ? 'border-cyan-500/50 shadow-[0_0_12px_rgba(6,182,212,0.08)]' 
+                                      ? 'border-blue-500/30' 
                                       : 'border-white/10 hover:border-white/20'
                                   )
                                 : cn(
@@ -324,7 +324,7 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
                         className={cn(
                           "group px-6 py-3 text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-300 hover:-translate-y-[1px] hover:translate-x-[1px] border flex items-center justify-center gap-2 cursor-pointer focus:outline-none active:scale-[0.98]",
                           theme === "dark"
-                            ? "bg-gradient-to-r from-cyan-600 to-blue-700 hover:from-cyan-500 hover:to-blue-600 text-white border-cyan-500/30 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15),0_4px_12px_rgba(0,0,0,0.5)]"
+                            ? "bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 text-white border-blue-500/30 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15),0_4px_12px_rgba(0,0,0,0.5)]"
                             : "bg-gradient-to-r from-[#2563EB] to-[#4F46E5] text-white border-transparent shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] hover:opacity-95"
                         )}
                       >

@@ -2,9 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import {
-  Shield,
-  Target,
-  ChevronRight
+  Shield
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTheme } from "@/components/theme-provider";
@@ -38,25 +36,25 @@ export default function StrategicVerticals() {
       label: "U01 Army",
       name: "Army",
       domain: "ARMY",
-      title: "Tactical Intelligence & Object Detection",
+      title: "Spatial Telemetry & Object Detection",
       mission: "Total Situational Awareness.",
       coords: "LAT: 34.0837° N // LON: 74.7973° E",
       description: "Edge compilation engines optimized for remote border deployments. Running multi-spectral computer vision networks at under 15ms latency, SARGVISION classifies object signatures, drone threat envelopes, and unauthorized coordinates directly on the hardware edge without requiring internet connection.",
-      color: "cyan",
-      textGlow: "text-glow-cyan",
-      borderColor: "border-cyan-500/25",
-      activeBorderColor: "border-cyan-400/40",
-      activeBg: "bg-cyan-500/10",
-      activeTextColor: "text-cyan-400",
+      color: "blue",
+      textGlow: "",
+      borderColor: "border-blue-500/20",
+      activeBorderColor: "border-blue-500/30",
+      activeBg: "bg-blue-500/5",
+      activeTextColor: "text-blue-400",
       videoSrc: "/videos/v1.mp4",
       capabilities: [
         { name: "Real-time Target Tracking", value: "99.4% ACCURACY" },
         { name: "Multi-Spectral Object Vision", value: "<15ms LATENCY" },
         { name: "Thermal Grid Signature Synthesis", value: "ACTIVE" },
-        { name: "Sovereign Perimeter Shield Sync", value: "SECURE" }
+        { name: "Perimeter Signal Synchronization", value: "SECURE" }
       ],
       bgAsset: (
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-cyan-400">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-blue-400">
           <circle cx="100" cy="100" r="90" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 4" />
           <circle cx="100" cy="100" r="65" stroke="currentColor" strokeWidth="0.5" />
           <circle cx="100" cy="100" r="40" stroke="currentColor" strokeWidth="0.5" />
@@ -77,25 +75,25 @@ export default function StrategicVerticals() {
       label: "U02 Space",
       name: "Space",
       domain: "SPACE",
-      title: "AstraAI & Orbital Edge",
-      mission: "Autonomy in Orbit.",
+      title: "Orbital Remote Sensing & Edge Processing",
+      mission: "LEO Inference Payload Operations.",
       coords: "ALT: 540KM // ECC: 0.00014 // INC: 97.4°",
-      description: "Low-power payload execution matrices custom-compiled for LEO satellites. Processes LEO telemetry on-orbit, optimizing downlink routing, weather anomaly synthesis, and enabling standalone aerospace navigation.",
-      color: "purple",
-      textGlow: "text-glow-purple",
-      borderColor: "border-purple-500/25",
-      activeBorderColor: "border-purple-400/40",
-      activeBg: "bg-purple-500/10",
-      activeTextColor: "text-purple-400",
+      description: "Low-power inference payload execution matrices designed for LEO satellites. Processes remote sensing telemetry on-orbit to optimize downlink bandwidth, filter cloud anomalies, and compile real-time geospatial intelligence.",
+      color: "indigo",
+      textGlow: "",
+      borderColor: "border-indigo-500/20",
+      activeBorderColor: "border-indigo-500/30",
+      activeBg: "bg-indigo-500/5",
+      activeTextColor: "text-indigo-400",
       videoSrc: "/videos/v2.mp4",
       capabilities: [
-        { name: "On-Orbit Weight Compiling", value: "OPTIMIZED" },
-        { name: "LEO Satellite Routing Nets", value: "1.2GB/S TELEM" },
-        { name: "Inter-Constellation Sync Matrix", value: "STABLE" },
-        { name: "SoC Space Grade Radiation Shield", value: "ONLINE" }
+        { name: "Telemetry Pipeline Ingestion", value: "OPTIMIZED" },
+        { name: "Edge Inference Payload Execution", value: "1.2GB/S TELEM" },
+        { name: "Constellation Link Synchronization", value: "STABLE" },
+        { name: "Space-Grade Fault Tolerance", value: "ONLINE" }
       ],
       bgAsset: (
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-purple-400">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-indigo-400">
           <ellipse cx="100" cy="100" rx="90" ry="26" stroke="currentColor" strokeWidth="0.5" transform="rotate(-25 100 100)" />
           <ellipse cx="100" cy="100" rx="90" ry="26" stroke="currentColor" strokeWidth="0.5" transform="rotate(35 100 100)" />
           <ellipse cx="100" cy="100" rx="90" ry="26" stroke="currentColor" strokeWidth="0.5" transform="rotate(90 100 100)" />
@@ -115,21 +113,21 @@ export default function StrategicVerticals() {
       name: "Navy",
       domain: "NAVY",
       title: "Maritime Domain Awareness",
-      mission: "Oceanic Sovereignty.",
+      mission: "Littoral Ingestion Operations.",
       coords: "DEPTH: -450M // SECTOR: BAY_OF_BENGAL",
       description: "Acoustics engines on subsea hydrophone clusters and littoral grids, compiling subsea audio waveforms directly to classify vessel signatures and subsurface telemetry for absolute maritime dominance.",
       color: "blue",
-      textGlow: "text-glow-blue",
-      borderColor: "border-blue-500/25",
-      activeBorderColor: "border-blue-400/40",
-      activeBg: "bg-blue-500/10",
+      textGlow: "",
+      borderColor: "border-blue-500/20",
+      activeBorderColor: "border-blue-500/30",
+      activeBg: "bg-blue-500/5",
       activeTextColor: "text-blue-400",
       videoSrc: "/videos/v3.mp4",
       capabilities: [
-        { name: "Hydrophone Waveform Synthesizer", value: "ACTIVE" },
+        { name: "Hydrophone Waveform Processing", value: "ACTIVE" },
         { name: "Littoral Acoustic Signature Filter", value: "STABLE" },
         { name: "Automated Coastal Radar Fusion", value: "98.9% SYNC" },
-        { name: "Offline Depth Topography Engine", value: "STANDALONE" }
+        { name: "Depth Topography Mapping", value: "STANDALONE" }
       ],
       bgAsset: (
         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-blue-400">
@@ -155,38 +153,7 @@ export default function StrategicVerticals() {
       isDark ? "bg-transparent" : "bg-[#F8FAFD]"
     )}>
 
-      {/* Immersive Scanline & Glowing Text Styles */}
-      <style>{`
-        .scanlines-overlay {
-          background: linear-gradient(
-            rgba(18, 16, 16, 0) 50%, 
-            rgba(0, 0, 0, 0.25) 50%
-          ), linear-gradient(
-            90deg, 
-            rgba(255, 0, 0, 0.06), 
-            rgba(0, 255, 0, 0.02), 
-            rgba(0, 0, 255, 0.06)
-          );
-          background-size: 100% 3px, 6px 100%;
-        }
-        @keyframes scanlineSweep {
-          0% { transform: translateY(-100%); }
-          100% { transform: translateY(100%); }
-        }
-        .animate-scanline {
-          animation: scanlineSweep 8s linear infinite;
-        }
 
-        .text-glow-cyan {
-          text-shadow: 0 0 12px rgba(6, 182, 212, 0.6);
-        }
-        .text-glow-purple {
-          text-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
-        }
-        .text-glow-blue {
-          text-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
-        }
-      `}</style>
 
       {/* Atmospheric technical background grid */}
       <div className={cn(
@@ -211,7 +178,7 @@ export default function StrategicVerticals() {
                 ? "bg-white/5 border-white/10"
                 : "bg-[#0F172A]/5 border-[#E2E8F0]"
             )}>
-              <Shield className={cn("w-3.5 h-3.5 animate-pulse", isDark ? "text-accent-cyan" : "text-[#2563EB]")} />
+              <Shield className={cn("w-3.5 h-3.5", isDark ? "text-blue-500/80" : "text-[#2563EB]")} />
               <span className={cn(
                 "text-[10px] font-bold uppercase tracking-widest font-mono",
                 isDark ? "text-gray-300" : "text-[#0F172A]"
@@ -221,7 +188,7 @@ export default function StrategicVerticals() {
             </div>
 
             <h2 className={cn(
-              "font-heading font-bold text-4xl md:text-6xl tracking-tight",
+              "font-editorial font-semibold text-3xl md:text-5xl lg:text-6xl tracking-tight leading-tight",
               isDark ? "text-white" : "text-[#0F172A]"
             )}>
               Strategic Verticals
@@ -245,8 +212,8 @@ export default function StrategicVerticals() {
             isDark ? "text-neutral-500" : "text-[#64748B]"
           )}>
             <div className="flex items-center gap-2">
-              <span className={cn("w-1.5 h-1.5 rounded-full animate-ping", isDark ? "bg-cyan-500/80" : "bg-[#2563EB]")} />
-              <span className={isDark ? "text-neutral-400" : "text-[#0F172A] font-medium"}>CLASSIFIED DATA PIPELINE ACTIVE</span>
+              <span className={cn("w-1.5 h-1.5 rounded-full", isDark ? "bg-cyan-500/80" : "bg-[#2563EB]")} />
+              <span className={isDark ? "text-neutral-400" : "text-[#0F172A] font-medium"}>SECURE NETWORK ACTIVE</span>
             </div>
             <div>SYS_TIME: {currentTime} // REGION: BHARAT</div>
             <div>TELEM_REF: #SARG-INTEL-99X</div>
@@ -259,20 +226,16 @@ export default function StrategicVerticals() {
             {verticals.map((item) => {
               const isActive = activeTab === item.id;
               const themeColorClass = isDark
-                ? item.color === 'cyan'
+                ? item.color === 'indigo'
                   ? isActive
-                    ? 'border-cyan-500/70 bg-cyan-500/[0.05] shadow-[0_0_32px_rgba(6,182,212,0.22),inset_0_0_12px_rgba(6,182,212,0.05)] text-white'
-                    : 'border-cyan-500/55 bg-neutral-950/20 text-cyan-400/80 hover:border-cyan-500/75 hover:bg-cyan-500/[0.03] hover:shadow-[0_0_20px_rgba(6,182,212,0.16)] shadow-[0_0_14px_rgba(6,182,212,0.10)]'
-                  : item.color === 'purple'
-                    ? isActive
-                      ? 'border-purple-500/70 bg-purple-500/[0.05] shadow-[0_0_32px_rgba(168,85,247,0.22),inset_0_0_12px_rgba(168,85,247,0.05)] text-white'
-                      : 'border-purple-500/55 bg-neutral-950/20 text-purple-400/80 hover:border-purple-500/75 hover:bg-purple-500/[0.03] hover:shadow-[0_0_20px_rgba(168,85,247,0.16)] shadow-[0_0_14px_rgba(168,85,247,0.10)]'
-                    : isActive
-                      ? 'border-blue-500/70 bg-blue-500/[0.05] shadow-[0_0_32px_rgba(59,130,246,0.22),inset_0_0_12px_rgba(59,130,246,0.05)] text-white'
-                      : 'border-blue-500/55 bg-neutral-950/20 text-blue-400/80 hover:border-blue-500/75 hover:bg-blue-500/[0.03] hover:shadow-[0_0_20px_rgba(59,130,246,0.16)] shadow-[0_0_14px_rgba(59,130,246,0.10)]'
+                    ? 'border-indigo-500/30 bg-indigo-950/5 text-white shadow-sm'
+                    : 'border-indigo-500/10 bg-[#0B1020]/40 text-neutral-400 hover:border-indigo-500/20 hover:bg-indigo-950/5'
+                  : isActive
+                    ? 'border-blue-500/30 bg-blue-950/5 text-white shadow-sm'
+                    : 'border-blue-500/10 bg-[#0B1020]/40 text-neutral-400 hover:border-blue-500/20 hover:bg-blue-950/5'
                 : isActive
-                  ? 'bg-[linear-gradient(180deg,#FFFFFF_0%,#F8FBFF_100%)] border-2 border-[#94A3B8] shadow-[0_15px_40px_rgba(15,23,42,0.12)] hover:shadow-[0_25px_50px_rgba(15,23,42,0.18)] text-[#0F172A] -translate-y-1'
-                  : 'bg-[linear-gradient(180deg,#FFFFFF_0%,#F8FBFF_100%)] border-2 border-[#E2E8F0] shadow-[0_15px_40px_rgba(15,23,42,0.12)] hover:border-[#CBD5E1] hover:shadow-[0_25px_50px_rgba(15,23,42,0.18)] hover:-translate-y-1 text-[#64748B]';
+                  ? 'bg-white border-2 border-slate-400 shadow-sm text-[#0F172A]'
+                  : 'bg-white border border-[#E8ECF0] shadow-sm hover:border-[#C8D0DA] text-[#64748B]';
 
               return (
                 <motion.button
@@ -283,6 +246,8 @@ export default function StrategicVerticals() {
                     y: 15
                   }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -2, scale: 1.015 }}
+                  whileTap={{ scale: 0.98 }}
                   viewport={{ once: true, amount: 0.50 }}
                   transition={{
                     duration: 0.85,
@@ -290,15 +255,13 @@ export default function StrategicVerticals() {
                     delay: item.id * 0.12
                   }}
                   className={cn(
-                    "flex-1 min-h-[170px] flex flex-col justify-between p-6 rounded-2xl transition-all duration-500 relative overflow-hidden group text-left will-change-transform cursor-pointer",
-                    isDark ? "border-2 backdrop-blur-md" : "",
+                    "flex-1 min-h-[170px] flex flex-col justify-between p-6 rounded-2xl transition-all duration-500 relative overflow-hidden group text-left will-change-transform cursor-pointer outline-none focus:outline-none focus-visible:outline-none",
+                    isDark ? "border backdrop-blur-md" : "",
                     themeColorClass
                   )}
                 >
-                  <div className="absolute inset-0 scanlines-overlay opacity-[0.01] pointer-events-none" />
-
                   <div className="absolute right-4 top-2 bottom-2 w-1/3 opacity-[0.03] pointer-events-none select-none font-mono text-[5px] text-right leading-tight overflow-hidden break-all">
-                    {item.color === 'cyan' ? 'COORD_LOCK_U01_LAT_LON_SECTOR_ARM_INFERENCE_UNDER_15MS_CALIBRATED' : item.color === 'purple' ? 'ORBIT_LOCK_U02_ALT_LEO_PAYLOAD_WEIGHTS_ROUTING_NOME_ACTIVE_TELEM' : 'HYDRO_LOCK_U03_DEPTH_AC_WAVES_SECTOR_SYNC_STANDALONE_COASTAL_FUS'}
+                    {item.color === 'cyan' ? 'SECURE_U01_LINK_ESTABLISHED' : item.color === 'purple' ? 'ORBITAL_LINK_U02_SYNCED' : 'HYDRO_SENSOR_U03_ACTIVE'}
                   </div>
 
                   <div className="flex flex-col justify-between flex-1 relative z-20 pointer-events-none w-full h-full">
@@ -322,7 +285,7 @@ export default function StrategicVerticals() {
                         "transition-all duration-500",
                         isDark
                           ? isActive
-                            ? item.color === 'cyan' ? 'text-cyan-400 text-glow-cyan' : item.color === 'purple' ? 'text-purple-400 text-glow-purple' : 'text-blue-400 text-glow-blue'
+                            ? item.color === 'cyan' ? 'text-cyan-400' : item.color === 'purple' ? 'text-purple-400' : 'text-blue-400'
                             : "text-neutral-500 group-hover:text-neutral-400"
                           : isActive
                             ? "text-[#2563EB]"
@@ -351,10 +314,10 @@ export default function StrategicVerticals() {
 
                     <div className="flex-1 flex flex-col justify-center z-20 relative py-4">
                       <div className={cn(
-                        "text-4xl font-black uppercase font-heading tracking-tighter leading-none transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                        "text-3xl font-semibold uppercase tracking-tight leading-none transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]",
                         isDark
                           ? isActive
-                            ? item.color === 'cyan' ? 'text-white text-glow-cyan' : item.color === 'purple' ? 'text-white text-glow-purple' : 'text-white text-glow-blue'
+                            ? 'text-white'
                             : 'text-neutral-400 group-hover:text-white transition-colors duration-1000'
                           : "text-[#0F172A]"
                       )}>
@@ -391,7 +354,7 @@ export default function StrategicVerticals() {
                     )}>
                       <span>{item.coords}</span>
                       <div className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${isActive
-                        ? item.color === 'cyan' ? 'bg-cyan-500 animate-ping shadow-[0_0_8px_#22d3ee]' : item.color === 'purple' ? 'bg-purple-500 animate-ping shadow-[0_0_8px_#c084fc]' : 'bg-blue-500 animate-ping shadow-[0_0_8px_#60a5fa]'
+                        ? item.color === 'cyan' ? 'bg-cyan-500' : item.color === 'purple' ? 'bg-purple-500' : 'bg-blue-500'
                         : 'bg-neutral-600'
                         }`} />
                     </div>
@@ -414,19 +377,10 @@ export default function StrategicVerticals() {
             className={cn(
               "col-span-12 lg:col-span-7 flex flex-col justify-between rounded-3xl overflow-hidden min-h-[600px] transition-all duration-700 relative will-change-transform",
               isDark
-                ? cn(
-                    "border border-2 backdrop-blur-2xl",
-                    current.color === 'cyan'
-                      ? 'bg-gradient-to-br from-[#0B1528]/80 to-[#030816]/98 border-cyan-400/60 shadow-[0_0_32px_rgba(6,182,212,0.18),inset_0_0_20px_rgba(6,182,212,0.04)]'
-                      : current.color === 'purple'
-                        ? 'border-purple-400/60 shadow-[0_0_32px_rgba(168,85,247,0.18),inset_0_0_20px_rgba(168,85,247,0.04)]'
-                        : 'border-blue-400/60 shadow-[0_0_32px_rgba(59,130,246,0.18),inset_0_0_20px_rgba(59,130,246,0.04)]'
-                  )
-                : "bg-white border border-[rgba(15,23,42,0.08)] shadow-[0_20px_60px_rgba(15,23,42,0.08)]"
+                ? "border backdrop-blur-2xl bg-gradient-to-br from-[#080D18]/95 to-[#030609]/98 border-white/10 shadow-lg"
+                : "bg-white border border-[#C8D0DA] shadow-[0_20px_60px_rgba(15,23,42,0.08)]"
             )}
           >
-            <div className="absolute inset-0 scanlines-overlay opacity-[0.02] pointer-events-none z-10" />
-
             <div className="p-8 md:p-10 flex flex-col justify-between h-full z-20 relative">
               <div className="space-y-8">
                 <div className={cn(
@@ -436,22 +390,18 @@ export default function StrategicVerticals() {
                   <div className="flex items-center gap-2">
                     <div className={cn("font-bold px-2 py-0.5 rounded border transition-colors duration-500",
                       isDark
-                        ? current.color === 'cyan'
-                          ? 'bg-cyan-500/10 border-cyan-500/30 text-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.15)]'
-                          : current.color === 'purple'
-                            ? 'bg-purple-500/10 border-purple-500/30 text-purple-400 shadow-[0_0_8px_rgba(168,85,247,0.15)]'
-                            : 'bg-blue-500/10 border-blue-500/30 text-blue-400 shadow-[0_0_8px_rgba(59,130,246,0.15)]'
-                        : current.color === 'cyan'
-                          ? 'bg-cyan-50 border-cyan-200 text-cyan-600'
-                          : current.color === 'purple'
-                            ? 'bg-purple-50 border-purple-200 text-purple-600'
-                            : 'bg-blue-50 border-blue-200 text-blue-600'
+                        ? current.color === 'indigo'
+                          ? 'bg-indigo-500/10 border-indigo-500/30 text-indigo-400'
+                          : 'bg-blue-500/10 border-blue-500/30 text-blue-400'
+                        : current.color === 'indigo'
+                          ? 'bg-[#8B5CF6]/5 border-[#8B5CF6]/20 text-[#8B5CF6]'
+                          : 'bg-blue-50 border-blue-200 text-blue-600'
                     )}>
                       {current.uid}
                     </div>
                     <div className={cn(
                       "font-bold transition-colors duration-500",
-                      isDark ? current.activeTextColor : (current.color === 'cyan' ? 'text-cyan-600' : current.color === 'purple' ? 'text-purple-600' : 'text-blue-600')
+                      isDark ? current.activeTextColor : (current.color === 'indigo' ? 'text-indigo-600' : 'text-blue-600')
                     )}>
                       {current.domain} // SOVEREIGN_INTELLIGENCE // SECURE
                     </div>
@@ -460,44 +410,24 @@ export default function StrategicVerticals() {
                 </div>
 
                 <div className="space-y-6">
-                  <div className="space-y-2">
-                    <div className={cn(
-                      "font-mono text-[10px] tracking-widest uppercase",
-                      isDark ? "text-neutral-500" : "text-[#64748B]"
-                    )}>
-                      Sovereign Domain
-                    </div>
-                    <h3 className={cn(
-                      "text-3xl md:text-4xl font-bold tracking-tight font-heading leading-tight transition-colors duration-500",
-                      isDark ? cn("text-white", current.textGlow) : "text-[#0F172A]"
-                    )}>
-                      {current.title}
-                    </h3>
-                  </div>
+                  <h3 className={cn(
+                    "text-3xl md:text-4xl font-bold tracking-tight font-editorial leading-tight transition-colors duration-300",
+                    isDark ? "text-white" : "text-[#0F172A]"
+                  )}>
+                    {current.title}
+                  </h3>
 
                   <div className="space-y-4">
-                    <div className={cn(
-                      "flex items-center gap-2 text-[10px] font-mono",
-                      isDark ? "text-neutral-400" : "text-[#64748B]"
-                    )}>
-                      <Target className={cn(
-                        "w-3.5 h-3.5 transition-colors duration-500",
-                        isDark 
-                          ? (current.color === 'cyan' ? 'text-cyan-400' : current.color === 'purple' ? 'text-purple-400' : 'text-blue-400')
-                          : (current.color === 'cyan' ? 'text-cyan-600' : current.color === 'purple' ? 'text-purple-600' : 'text-blue-600')
-                      )} />
-                      <div className={cn(
-                        "uppercase font-bold tracking-widest",
-                        isDark ? "text-white/95" : "text-[#0F172A]"
-                      )}>
-                        Mission: "{current.mission}"
-                      </div>
-                    </div>
-
                     <p className={cn(
                       "text-xs md:text-sm leading-relaxed font-light font-body",
-                      isDark ? "text-neutral-400" : "text-[#475569]"
+                      isDark ? "text-neutral-300" : "text-[#334155]"
                     )}>
+                      <span className={cn(
+                        "font-mono text-[10px] font-bold uppercase tracking-wider block mb-2",
+                        isDark ? "text-neutral-200" : "text-[#0F172A]"
+                      )}>
+                        MISSION FOCUS: {current.mission}
+                      </span>
                       {current.description}
                     </p>
                   </div>
@@ -509,75 +439,77 @@ export default function StrategicVerticals() {
                 )}>
                   <div className={cn(
                     "flex justify-between items-center text-[10px] font-mono font-bold",
-                    isDark ? "text-neutral-400" : "text-[#64748B]"
+                    isDark ? "text-neutral-500" : "text-[#64748B]"
                   )}>
-                    <div>EXPANDABLE INTELLIGENCE BRIEFING</div>
-                    <div className="flex items-center gap-1 opacity-60">
-                      DECRYPTION ACTIVE
-                      <ChevronRight className={cn(
-                        "w-3 h-3 transition-transform duration-500 rotate-90",
-                        isDark
-                          ? (current.color === 'cyan' ? 'text-cyan-400' : current.color === 'purple' ? 'text-purple-400' : 'text-blue-400')
-                          : (current.color === 'cyan' ? 'text-cyan-600' : current.color === 'purple' ? 'text-purple-600' : 'text-blue-600')
+                    <div>OPERATIONAL SYSTEM SPECIFICATIONS</div>
+                    <div className="flex items-center gap-1.5 opacity-80">
+                      <span className={cn("w-1.5 h-1.5 rounded-full", 
+                        current.color === 'indigo' ? 'bg-indigo-500' : 'bg-blue-500'
                       )} />
+                      STATUS: VERIFIED
                     </div>
                   </div>
 
                   <div className={cn(
-                    "grid grid-cols-2 gap-px border overflow-hidden rounded-xl relative transition-all duration-500",
-                    isDark
-                      ? cn("bg-white/[0.04]", current.color === 'cyan' ? 'border-cyan-500/30' : current.color === 'purple' ? 'border-purple-500/30' : 'border-blue-500/30')
-                      : cn("bg-[#F8FAFD]", current.color === 'cyan' ? 'border-cyan-200' : current.color === 'purple' ? 'border-purple-200' : 'border-blue-200')
+                    "grid grid-cols-2 gap-x-6 gap-y-3 pt-2",
+                    isDark ? "text-neutral-400" : "text-[#475569]"
                   )}>
                     {current.capabilities.map((cap, index) => (
                       <div
                         key={index}
                         className={cn(
-                          "font-mono p-3 text-[9px] flex flex-col justify-between gap-1.5",
-                          isDark ? "bg-[#030816]/95" : "bg-white"
+                          "flex justify-between items-center font-mono text-[9px] pb-1.5 border-b border-dashed",
+                          isDark ? "border-white/5" : "border-slate-200"
                         )}
                       >
-                        <div className={cn(
-                          "select-none uppercase tracking-wider",
-                          isDark ? "text-neutral-500/80" : "text-[#64748B]"
-                        )}>{cap.name}</div>
-                        <div className={cn(
+                        <span className="opacity-70 uppercase tracking-wider">{cap.name}</span>
+                        <span className={cn(
                           "font-bold transition-colors duration-500",
                           isDark 
-                            ? (current.color === 'cyan' ? 'text-cyan-400 text-glow-cyan' : current.color === 'purple' ? 'text-purple-400 text-glow-purple' : 'text-blue-400 text-glow-blue')
-                            : (current.color === 'cyan' ? 'text-cyan-600' : current.color === 'purple' ? 'text-purple-600' : 'text-blue-600')
+                            ? (current.color === 'indigo' ? 'text-indigo-400' : 'text-blue-400')
+                            : (current.color === 'indigo' ? 'text-indigo-600' : 'text-blue-600')
                         )}>
                           {cap.value}
-                        </div>
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
 
-              <div className={cn(
-                "mt-8 relative h-[250px] md:h-[300px] overflow-hidden w-full transition-all duration-500",
-                isDark
-                  ? cn(
-                      "bg-neutral-950 rounded-2xl border shadow-[0_0_30px_rgba(0,0,0,0.5)]",
-                      current.color === 'cyan' 
-                        ? 'border-cyan-500/35 shadow-[0_0_15px_rgba(6,182,212,0.04)]' 
-                        : current.color === 'purple' 
-                          ? 'border-purple-500/35 shadow-[0_0_15px_rgba(168,85,247,0.04)]' 
-                          : 'border-blue-500/35 shadow-[0_0_15px_rgba(59,130,246,0.04)]'
-                    )
-                  : "bg-neutral-950 rounded-xl border border-[rgba(15,23,42,0.08)] shadow-[0_10px_30px_rgba(15,23,42,0.06)]"
-              )}>
-                <video
-                  key={current.videoSrc}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover"
-                >
-                  <source src={current.videoSrc} type="video/mp4" />
-                </video>
+              <div className="space-y-2 mt-8">
+                <div className={cn(
+                  "flex justify-between items-center font-mono text-[8px] px-1",
+                  isDark ? "text-neutral-500" : "text-[#64748B]"
+                )}>
+                  <span>TELEMETRY VERIFICATION FEED // U0{current.id + 1}_PAYLOAD</span>
+                  <span className="flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    LIVE LINK
+                  </span>
+                </div>
+                <div className={cn(
+                  "relative h-[250px] md:h-[300px] overflow-hidden w-full transition-all duration-500",
+                  isDark
+                    ? cn(
+                        "bg-neutral-950 rounded-2xl border",
+                        current.color === 'indigo' 
+                          ? 'border-indigo-500/20 shadow-sm' 
+                          : 'border-blue-500/20 shadow-sm'
+                      )
+                    : "bg-neutral-950 rounded-xl border border-[rgba(15,23,42,0.08)] shadow-[0_10px_30px_rgba(15,23,42,0.06)]"
+                )}>
+                  <video
+                    key={current.videoSrc}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  >
+                    <source src={current.videoSrc} type="video/mp4" />
+                  </video>
+                </div>
               </div>
             </div>
           </motion.div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Space_Grotesk, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
@@ -20,6 +20,13 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "SARGVISION | Sovereign Agentic Universe",
   description: "Autonomous AI systems and educational intelligence infrastructure built for Bharat's sovereign future.",
@@ -33,7 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`h-full antialiased ${inter.variable} ${spaceGrotesk.variable}`}
+      className={`h-full antialiased ${inter.variable} ${spaceGrotesk.variable} ${cormorant.variable}`}
     >
       <body className="min-h-full flex flex-col bg-dark-base text-[#0F172A] dark:text-gray-100 select-none transition-colors duration-500">
         <ThemeProvider>
