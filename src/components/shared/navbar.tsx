@@ -114,7 +114,7 @@ export default function Navbar() {
           : "bg-[rgba(255,255,255,0.75)] dark:bg-transparent backdrop-blur-[20px] dark:backdrop-blur-none py-6 border-b border-[rgba(15,23,42,0.06)] dark:border-b-transparent"
       )}
     >
-      <div className="w-full flex items-center justify-between">
+      <div className="w-full flex items-center justify-between relative z-50">
         {/* Brand Identity Logo - Left Column */}
         <div className="flex-1 flex justify-start items-center shrink-0">
           <Link href="/" className="select-none group block">
@@ -223,7 +223,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-x-0 top-0 bottom-0 z-40 w-full bg-dark-base/95 backdrop-blur-2xl md:hidden flex flex-col justify-between p-8 pt-32 animate-fade-in border-t border-[#E2E8F0] dark:border-white/5">
+        <div className="fixed inset-0 z-40 w-full bg-[#F6F8FB]/95 dark:bg-[#050816]/95 backdrop-blur-2xl md:hidden flex flex-col justify-between p-8 pt-32 animate-fade-in border-t border-[#E2E8F0] dark:border-white/5">
           <nav className="flex flex-col gap-6 pt-4">
             {navLinks.map((link) => (
               <Link

@@ -18,6 +18,25 @@ export default function CustomCursor() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
+  const [isTouchOrMobile, setIsTouchOrMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const checkDevice = () => {
+        setIsTouchOrMobile(
+          window.matchMedia("(pointer: coarse)").matches ||
+          window.matchMedia("(hover: none)").matches ||
+          window.innerWidth < 768
+        );
+      };
+      checkDevice();
+      window.addEventListener("resize", checkDevice);
+      return () => {
+        window.removeEventListener("resize", checkDevice);
+      };
+    }
+  }, []);
+
   const [cursorState, setCursorState] = useState<CursorState>("default");
   const [lockTarget, setLockTarget] = useState<LockTarget | null>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -147,6 +166,7 @@ export default function CustomCursor() {
     };
   }, []);
 
+  if (isTouchOrMobile) return null;
   if (!isVisible) return null;
 
   // ─── Neutral, institutional color palette ─────────────────────────────────
@@ -268,7 +288,7 @@ export default function CustomCursor() {
           <div
             className="w-1.5 h-1.5 rounded-full transition-colors duration-300 relative z-10"
             style={{
-              backgroundColor: "#ffffff",
+              backgroundColor: isDark ? "#ffffff" : "#0F172A",
               boxShadow: isDark
                 ? "0 0 0 1px rgba(255,255,255,0.15)"
                 : "0 0 0 1px rgba(15,23,42,0.25)",

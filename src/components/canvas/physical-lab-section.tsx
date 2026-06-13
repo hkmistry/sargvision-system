@@ -42,7 +42,7 @@ export default function PhysicalLabSection() {
 
   return (
     <section id="physical-lab" className={cn(
-      "relative w-full py-32 z-10 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden animate-fade-in",
+      "relative w-full py-16 md:py-32 z-10 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden animate-fade-in",
       isDark ? "bg-transparent" : "bg-transparent"
     )}>
       <div className="space-y-16">
@@ -51,7 +51,7 @@ export default function PhysicalLabSection() {
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.45 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center space-y-4"
         >
@@ -97,7 +97,7 @@ export default function PhysicalLabSection() {
                   key={step.index}
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.45 }}
+                  viewport={{ once: true, amount: 0.1 }}
                   transition={{ 
                     duration: 0.85, 
                     ease: [0.16, 1, 0.3, 1], 
@@ -184,7 +184,7 @@ export default function PhysicalLabSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.45 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
             className="lg:col-span-5 relative w-full h-full min-h-[480px]"
           >

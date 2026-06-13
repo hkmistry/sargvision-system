@@ -25,7 +25,7 @@ export default function NeuralParticles() {
 
     let animationFrameId: number;
     let particles: Particle[] = [];
-    const maxParticles = 90; // Balanced for premium visuals + peak performance
+    const maxParticles = window.innerWidth < 768 ? 35 : 90; // Balanced for mobile performance and desktop visual density
     const connectionDistance = 140;
 
     // Responsive Canvas Resize

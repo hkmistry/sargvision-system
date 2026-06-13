@@ -44,12 +44,14 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-dark-base text-[#0F172A] dark:text-gray-100 select-none transition-colors duration-500">
         <ThemeProvider>
-          {/* Official Next.js high-performance script loader to guarantee registration of spline-viewer */}
+          {/* Preload/load the official Spline Viewer script client-side as early as possible */}
           <Script
-            type="module"
+            id="spline-viewer-runtime-script"
             src="https://unpkg.com/@splinetool/viewer@1.9.54/build/spline-viewer.js"
+            type="module"
             strategy="afterInteractive"
           />
+          
           {/* SARGVISION Active Intelligence Probe Cursor Layer */}
           <CustomCursor />
           

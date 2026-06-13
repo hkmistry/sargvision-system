@@ -39,18 +39,41 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
       let checks = 0;
       const interval = setInterval(() => {
         checks++;
-        const viewer = document.querySelector('spline-viewer');
-        if (viewer && viewer.shadowRoot) {
-          const logo = viewer.shadowRoot.getElementById('logo');
-          if (logo) {
-            const style = document.createElement('style');
-            style.innerHTML = '#logo, .spline-logo, a[href*="spline.design"] { display: none !important; }';
-            viewer.shadowRoot.appendChild(style);
+        const viewers = document.querySelectorAll('spline-viewer');
+        let allInjected = true;
+        if (viewers.length > 0) {
+          viewers.forEach((viewer) => {
+            if (viewer.shadowRoot) {
+              const styleId = 'spline-viewer-custom-overrides';
+              if (!viewer.shadowRoot.getElementById(styleId)) {
+                const style = document.createElement('style');
+                style.id = styleId;
+                style.innerHTML = `
+                  #logo, 
+                  .spline-logo, 
+                  a[href*="spline.design"], 
+                  #loader, 
+                  #preloader, 
+                  #loading-ui, 
+                  #spinner, 
+                  .loading-spinner { 
+                    display: none !important; 
+                    opacity: 0 !important;
+                    visibility: hidden !important;
+                  }
+                `;
+                viewer.shadowRoot.appendChild(style);
+              }
+            } else {
+              allInjected = false;
+            }
+          });
+          if (allInjected) {
             clearInterval(interval);
           }
         }
         if (checks > 30) clearInterval(interval);
-      }, 100);
+      }, 50);
     }
 
     // Global Pointer Forwarding Engine to track cursor movements screen-wide
@@ -110,6 +133,7 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
       */}
       {scriptLoaded && React.createElement('spline-viewer', {
         url: productionRobotScene,
+        loading: 'eager',
         class: `w-full h-full border-0 bg-transparent min-h-full ${className || ''}`,
         style: { width: '100%', height: '100%', display: 'block' }
       })}

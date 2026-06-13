@@ -175,7 +175,7 @@ export default function StrategicVerticals() {
 
   return (
     <section id="strategic-verticals" className={cn(
-      "relative py-36 z-10 px-4 md:px-8 overflow-hidden bg-transparent"
+      "relative py-16 md:py-36 z-10 px-4 md:px-8 overflow-hidden bg-transparent"
     )}>
 
 
@@ -192,7 +192,7 @@ export default function StrategicVerticals() {
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.50 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-10"
         >
@@ -233,7 +233,7 @@ export default function StrategicVerticals() {
 
           {/* Telemetry data header */}
           <div className={cn(
-            "w-full md:w-max flex flex-col items-end gap-1 font-mono text-[9px]",
+            "hidden md:flex w-full md:w-max flex-col items-end gap-1 font-mono text-[9px]",
             isDark ? "text-neutral-500" : "text-[#64748B]"
           )}>
             <div className="flex items-center gap-2">
@@ -301,7 +301,7 @@ export default function StrategicVerticals() {
                   whileInView={{ opacity: 1, y: 0 }}
                   whileHover={{ y: -2, scale: 1.015 }}
                   whileTap={{ scale: 0.98 }}
-                  viewport={{ once: true, amount: 0.50 }}
+                  viewport={{ once: true, amount: 0.1 }}
                   transition={{
                     duration: 0.85,
                     ease: [0.16, 1, 0.3, 1],
@@ -425,7 +425,7 @@ export default function StrategicVerticals() {
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.50 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
             className={cn(
               "col-span-12 lg:col-span-7 flex flex-col justify-between rounded-3xl overflow-hidden min-h-[600px] transition-all duration-700 relative will-change-transform",

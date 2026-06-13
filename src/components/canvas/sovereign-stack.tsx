@@ -117,7 +117,7 @@ export default function SovereignStack() {
   ];
 
   return (
-    <section id="sovereign-stack" className="relative w-full py-28 z-10 px-4 md:px-8 bg-transparent select-none overflow-hidden animate-fade-in">
+    <section id="sovereign-stack" className="relative w-full py-16 md:py-28 z-10 px-4 md:px-8 bg-transparent select-none overflow-hidden animate-fade-in">
       
       {styleFragment}
 
@@ -159,7 +159,7 @@ export default function SovereignStack() {
                 STEADY
               </span>
             </div>
-            <div className={cn("flex items-center gap-4", isDark ? "text-neutral-400" : "text-[#64748B]")}>
+            <div className={cn("hidden sm:flex items-center gap-4", isDark ? "text-neutral-400" : "text-[#64748B]")}>
               <span>SYS_STAMP: <span className={cn("font-bold", isDark ? "text-white" : "text-[#0F172A]")}>{systemTime || "2026-05-30T13:16:00Z"}</span></span>
               <span className={isDark ? "text-neutral-600" : "text-slate-300"}>//</span>
               <span>LOC: <span className={cn("font-bold", isDark ? "text-white" : "text-[#0F172A]")}>BENGALURU_BHARAT</span></span>
@@ -172,7 +172,7 @@ export default function SovereignStack() {
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
               className="w-full text-center space-y-6 max-w-4xl relative"
             >
@@ -213,7 +213,7 @@ export default function SovereignStack() {
               
               {/* Technical connector blueprint label */}
               <div className={cn(
-                "absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 font-mono text-[7px] uppercase tracking-[0.3em] border rounded-full select-none pointer-events-none",
+                "absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 font-mono text-[7px] uppercase tracking-[0.3em] border rounded-full select-none pointer-events-none hidden sm:block",
                 isDark
                   ? "bg-[#050816] border-slate-800 text-slate-500"
                   : "bg-[#F8FAFC] border-slate-200 text-[#0E7490]"
@@ -238,15 +238,7 @@ export default function SovereignStack() {
                 </h4>
               </div>
 
-              <div className="relative pl-12 md:pl-16 z-10 flex flex-col gap-6">
-                
-                {/* Static Vertical Connector Line */}
-                <div className={cn(
-                  "absolute left-6 md:left-8 top-[32.5px] bottom-[42px] md:top-[38.5px] md:bottom-[49px] w-[1.5px] z-0",
-                  isDark
-                    ? "bg-gradient-to-b from-slate-700/60 via-slate-700/30 to-transparent"
-                    : "bg-[#CBD5E1]"
-                )} />
+              <div className="relative z-10 flex flex-col gap-6 w-full">
 
                 {layers.map((layer, idx) => {
                   const isHovered = hoveredIndex === idx;
@@ -255,7 +247,7 @@ export default function SovereignStack() {
                       <motion.div
                         initial={{ opacity: 0.95, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.42 }}
+                        viewport={{ once: true, amount: 0.1 }}
                         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                         onMouseEnter={() => setHoveredIndex(idx)}
                         onMouseLeave={() => setHoveredIndex(null)}
@@ -284,44 +276,17 @@ export default function SovereignStack() {
 
                         {/* Left aligned info */}
                         <div className="flex items-center gap-5 relative z-10">
-                          <div className="flex flex-col items-center">
-                            {/* Outstanding clean & thin border default with thicker glowing active hover state */}
-                            <div className="relative">
-                              {/* Horizontal bridge connecting the card's number box to the vertical bus - Centered exactly on y-axis of number box */}
-                              <div className={cn(
-                                "absolute left-[-44px] md:left-[-56px] top-1/2 -translate-y-1/2 right-auto w-[44px] md:w-[56px] h-[1.5px] transition-all duration-500 ease-out z-0 pointer-events-none",
-                                isDark
-                                  ? isHovered
-                                    ? "bg-gradient-to-r from-blue-500/40 to-blue-500/5"
-                                    : "bg-gradient-to-r from-blue-500/10 to-transparent"
-                                  : "bg-[#CBD5E1]"
-                              )} />
-
-                              {/* Staggered heartbeat pulsed junction dot centered exactly on the vertical bus and number box center y-axis */}
-                              <div 
-                                className={cn(
-                                  "absolute left-[-50px] md:left-[-62px] top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-neutral-950 border-2 flex items-center justify-center z-10 pointer-events-none transition-all duration-300",
-                                  isHovered 
-                                    ? "border-blue-500/80 scale-100 shadow-sm" 
-                                    : "border-slate-800 scale-100 shadow-none"
-                                )}
-                              >
-                                <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                              </div>
-
-                              <div className={cn(
-                                "font-mono text-[9px] font-bold px-2 py-1 border rounded shadow-sm transition-all duration-300",
-                                isDark
-                                  ? isHovered
-                                    ? `${layer.numActiveBorder} ${layer.numActiveBg}`
-                                    : `${layer.numBorder} ${layer.numDefaultBg}`
-                                    : isHovered
-                                      ? "bg-blue-50 border-blue-200 text-[#0F172A]"
-                                      : "bg-slate-50 border-slate-200 text-[#0F172A]"
-                              )}>
-                                {layer.num}
-                              </div>
-                            </div>
+                          <div className={cn(
+                            "font-mono text-[9px] font-bold px-2 py-1 border rounded shadow-sm transition-all duration-300 shrink-0 select-none",
+                            isDark
+                              ? isHovered
+                                ? `${layer.numActiveBorder} ${layer.numActiveBg}`
+                                : `${layer.numBorder} ${layer.numDefaultBg}`
+                              : isHovered
+                                ? "bg-blue-50 border-blue-200 text-[#0F172A]"
+                                : "bg-slate-50 border-slate-200 text-[#0F172A]"
+                          )}>
+                            {layer.num}
                           </div>
                           
                           <div className="space-y-1">
@@ -332,7 +297,7 @@ export default function SovereignStack() {
                               {layer.name}
                             </div>
                             <div className={cn(
-                              "font-mono text-[8px] tracking-widest uppercase opacity-70",
+                              "font-mono text-[8px] tracking-widest uppercase opacity-70 hidden sm:block",
                               isDark ? "text-neutral-400" : "text-[#475569]"
                             )}>
                               {layer.description}
@@ -341,7 +306,7 @@ export default function SovereignStack() {
                         </div>
 
                         {/* Right aligned status readout */}
-                        <div className="text-right relative z-10 flex flex-col items-end justify-center">
+                        <div className="text-right relative z-10 hidden sm:flex flex-col items-end justify-center">
                           <div className={cn(
                             "font-mono text-[8px] md:text-[9px] font-bold tracking-widest uppercase transition-all duration-300",
                             isDark ? "text-blue-400/80" : "text-[#0E7490]"

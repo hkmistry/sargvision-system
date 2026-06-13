@@ -32,7 +32,7 @@ export default function StrategicDirectiveSection() {
               <motion.span 
                 initial={{ opacity: 0, y: 5 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.5 }}
                 className={cn(
                   "font-mono text-[10px] tracking-[0.25em] font-bold uppercase block",
@@ -45,7 +45,7 @@ export default function StrategicDirectiveSection() {
               <motion.h2 
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className={cn(
                   "font-editorial text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight antialiased",
@@ -58,7 +58,7 @@ export default function StrategicDirectiveSection() {
               <motion.p 
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className={cn(
                   "font-inter text-sm md:text-base leading-relaxed max-w-2xl font-normal antialiased",
@@ -73,7 +73,7 @@ export default function StrategicDirectiveSection() {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="pt-6 border-t border-slate-200 dark:border-slate-800/80 max-w-2xl"
             >
@@ -91,7 +91,7 @@ export default function StrategicDirectiveSection() {
             <motion.div 
               initial={{ opacity: 0, x: 15 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="relative py-2 space-y-8 md:space-y-11 w-fit"
             >

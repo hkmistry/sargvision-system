@@ -46,8 +46,8 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 pt-12 pb-8 relative z-10">
 
-        {/* ── 4-COLUMN GRID ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 pb-10">
+        {/* ── 2-COLUMN MOBILE / 4-COLUMN DESKTOP GRID ── */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 pb-10">
 
           {/* Column 1: SARGVISION BRAND */}
           <div className="space-y-4">

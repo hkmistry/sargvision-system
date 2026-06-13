@@ -52,7 +52,7 @@ export default function HumanCapitalSection() {
     }, [isInView]);
 
     return (
-        <section id="human-capital" className="relative w-full py-36 px-6 md:px-12 max-w-7xl mx-auto z-10 bg-transparent overflow-hidden">
+        <section id="human-capital" className="relative w-full py-16 md:py-36 px-4 md:px-12 max-w-7xl mx-auto z-10 bg-transparent overflow-hidden">
             
             {/* Custom Styles */}
             <style>{`
@@ -65,6 +65,43 @@ export default function HumanCapitalSection() {
                 }
             `}</style>
 
+            {/* Cinematic Header Block */}
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="text-center space-y-4 mb-16"
+            >
+              <div className={cn(
+                "inline-flex items-center gap-2 px-3 py-1 rounded-full backdrop-blur-md border",
+                isDark
+                  ? "bg-white/5 border-white/10"
+                  : "bg-[#0F172A]/5 border-[#E2E8F0]"
+              )}>
+                <span className={cn(
+                  "text-[10px] font-bold uppercase tracking-widest font-mono",
+                  isDark ? "text-slate-400" : "text-slate-600"
+                )}>
+                  Human Capital Infrastructure
+                </span>
+              </div>
+              
+              <h2 className={cn(
+                "font-editorial font-semibold text-3xl md:text-5xl lg:text-6xl tracking-tight leading-tight text-center",
+                isDark ? "text-white" : "text-[#0F172A]"
+              )}>
+                Human Capital Registry
+              </h2>
+              
+              <p className={cn(
+                "font-normal text-sm md:text-base max-w-xl mx-auto leading-relaxed",
+                isDark ? "text-slate-300" : "text-slate-600"
+              )}>
+                A sovereign system mapping regional talent to active career opportunities. Through secure 'Digital Twin' profiles, it tracks skill readiness, aligns candidates with relevant roles, and guides structured professional growth at scale.
+              </p>
+            </motion.div>
+
             {/* Main Premium Widescreen Layout Matrix */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch relative z-10">
 
@@ -72,7 +109,7 @@ export default function HumanCapitalSection() {
                 <motion.div 
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.42 }}
+                  viewport={{ once: true, amount: 0.1 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                   className="lg:col-span-5 relative"
                 >
@@ -105,7 +142,7 @@ export default function HumanCapitalSection() {
                         <motion.div 
                             initial={{ scale: 0.85 }}
                             whileInView={{ scale: 1 }}
-                            viewport={{ once: true, amount: 0.42 }}
+                            viewport={{ once: true, amount: 0.1 }}
                             transition={{ type: "spring", stiffness: 22, damping: 18, mass: 1.8, delay: 0.15 }}
                             className="relative flex items-center justify-center"
                         >
@@ -311,7 +348,7 @@ export default function HumanCapitalSection() {
                     <motion.div 
                       initial={{ opacity: 0, y: 15 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.42 }}
+                      viewport={{ once: true, amount: 0.1 }}
                       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
                       className={cn(
                         "rounded-3xl p-8 md:p-10 space-y-8 flex-grow flex flex-col justify-center relative overflow-hidden group transition-all duration-700 w-full will-change-transform",
@@ -325,14 +362,6 @@ export default function HumanCapitalSection() {
                         )}
 
                         <div className="space-y-4 relative z-10">
-                            <span className={cn(
-                              "font-mono text-[10px] tracking-[0.3em] uppercase w-max block font-medium px-3 py-1 rounded border",
-                              isDark
-                                ? "text-slate-400 bg-white/[0.02] border-slate-800"
-                                : "text-slate-600 bg-slate-50 border-[#E2E8F0]"
-                            )}>
-                                HUMAN CAPITAL INFRASTRUCTURE
-                            </span>
                               <h2 className={cn(
                                 "text-4xl md:text-5xl font-editorial font-semibold tracking-tight leading-none",
                                 isDark ? "text-white" : "text-[#0F172A]"
@@ -395,7 +424,7 @@ export default function HumanCapitalSection() {
                     <motion.div 
                       initial={{ opacity: 0, y: 15 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.42 }}
+                      viewport={{ once: true, amount: 0.1 }}
                       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
                       className={cn(
                         "rounded-3xl p-8 md:p-10 relative overflow-hidden transition-all duration-500 w-full will-change-transform",
@@ -471,7 +500,7 @@ export default function HumanCapitalSection() {
                                                     <motion.div 
                                                         initial={{ width: 0 }}
                                                         whileInView={{ width: "92%" }}
-                                                        viewport={{ once: true, amount: 0.42 }}
+                                                        viewport={{ once: true, amount: 0.1 }}
                                                         transition={{ type: "spring", stiffness: 30, damping: 15, delay: 0.3 }}
                                                         className={cn("h-full rounded-full", isDark ? "bg-blue-500" : "bg-[#2563EB]")} 
                                                     />
@@ -487,7 +516,7 @@ export default function HumanCapitalSection() {
                                                     <motion.div 
                                                         initial={{ width: 0 }}
                                                         whileInView={{ width: "78%" }}
-                                                        viewport={{ once: true, amount: 0.42 }}
+                                                        viewport={{ once: true, amount: 0.1 }}
                                                         transition={{ type: "spring", stiffness: 30, damping: 15, delay: 0.45 }}
                                                         className={cn("h-full rounded-full", isDark ? "bg-blue-500" : "bg-[#2563EB]")} 
                                                     />
@@ -503,7 +532,7 @@ export default function HumanCapitalSection() {
                                                     <motion.div 
                                                         initial={{ width: 0 }}
                                                         whileInView={{ width: "85%" }}
-                                                        viewport={{ once: true, amount: 0.42 }}
+                                                        viewport={{ once: true, amount: 0.1 }}
                                                         transition={{ type: "spring", stiffness: 30, damping: 15, delay: 0.6 }}
                                                         className={cn("h-full rounded-full", isDark ? "bg-blue-500" : "bg-[#2563EB]")} 
                                                     />

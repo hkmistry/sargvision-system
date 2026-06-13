@@ -30,7 +30,7 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
   return (
     <section
       id="contact-gate"
-      className={`relative w-full z-10 px-4 md:px-8 max-w-6xl mx-auto overflow-visible ${isSubpage ? "py-4" : "pt-32 pb-16"}`}
+      className={`relative w-full z-10 px-4 md:px-8 max-w-6xl mx-auto overflow-visible ${isSubpage ? "py-4" : "pt-16 pb-12 md:pt-32 md:pb-16"}`}
     >
       {/* Autofill override */}
       <style>{`
@@ -60,7 +60,7 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="text-center space-y-4 mb-16 relative z-10 animate-fade-in"
           >

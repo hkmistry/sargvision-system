@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { SplineScene } from "@/components/ui/spline-scene";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/theme-provider";
@@ -9,7 +9,45 @@ export default function ObservationChamber() {
   const { theme } = useTheme();
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const isDark = theme === "dark";
+
+  const [ready, setReady] = useState(false);
+  const [webglError, setWebGLError] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // ResizeObserver to detect when layout is ready with non-zero dimensions
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect;
+      if (width > 0 && height > 0) {
+        setReady(true);
+      }
+    });
+
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  // Event listener for WebGL failure states
+  useEffect(() => {
+    const handleWebGLError = () => {
+      setWebGLError(true);
+    };
+    window.addEventListener("webglcontextcreationerror", handleWebGLError);
+    return () => {
+      window.removeEventListener("webglcontextcreationerror", handleWebGLError);
+    };
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -21,8 +59,9 @@ export default function ObservationChamber() {
 
   return (
     <div 
+      ref={containerRef}
       className={cn(
-        "relative w-full h-[550px] overflow-hidden rounded-3xl transition-all duration-700",
+        "relative w-full h-[320px] md:h-[550px] overflow-hidden rounded-3xl transition-all duration-700",
         isDark 
           ? "bg-[#020513]/40" 
           : "bg-[#0F172A] border border-slate-800/80 shadow-[0_20px_50px_rgba(15,23,42,0.04)] ring-1 ring-white/5 ring-inset"
@@ -60,13 +99,10 @@ export default function ObservationChamber() {
         }
       `}</style>
 
-
       {/* Deep Navy/Black Background Gradients */}
       {isDark && (
         <div className="absolute inset-0 bg-gradient-to-br from-[#020513]/95 via-[#03071A]/50 to-[#050A1F]/90 z-0 pointer-events-none" />
       )}
-
-
 
       {/* Faint Volumetric Energy Haze */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -77,8 +113,6 @@ export default function ObservationChamber() {
           }}
         />
       </div>
-
-      {/* Slow Ambient Scan Shimmer Removed */}
 
       {/* Soft Corner Emitters (Very Subtle) */}
       <div className="absolute top-0 left-0 w-28 h-28 bg-gradient-to-br from-blue-500/5 to-transparent blur-[32px] pointer-events-none z-0" />
@@ -91,17 +125,26 @@ export default function ObservationChamber() {
         <div className="absolute inset-0 rounded-3xl shadow-[inset_0_0_1px_rgba(255,255,255,0.04)] pointer-events-none z-0" />
       )}
 
-      {/* 3D Spline Containment Subject */}
-      <div className="absolute inset-0 w-full h-full z-10 robot-interaction-zone">
-        <SplineScene
-          scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-          className="w-full h-full"
-        />
-        {/* Central target core hotspot to trigger focus bracket tightening */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full z-20 pointer-events-auto robot-hotspot" />
-      </div>
+      {/* 3D Spline Scene (Mounted when container is ready and WebGL is functional) */}
+      {mounted && ready && !webglError && (
+        <div className="absolute inset-0 w-full h-full z-10 robot-interaction-zone pointer-events-none md:pointer-events-auto">
+          <SplineScene
+            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            className="w-full h-full"
+          />
+          {/* Central target core hotspot to trigger focus bracket tightening */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full z-20 pointer-events-auto robot-hotspot" />
+        </div>
+      )}
 
-
+      {/* WebGL Blocked Fail-Safe State */}
+      {webglError && (
+        <div className="absolute inset-0 w-full h-full z-20 flex flex-col items-center justify-center p-6 bg-[#020513]/90">
+          <p className="font-mono text-[9px] tracking-[0.15em] uppercase text-slate-500">
+            System Operational // Interface Offline
+          </p>
+        </div>
+      )}
 
       {/* Interactive Cursor Light (Inner Volumetric Haze) */}
       <div
@@ -128,8 +171,6 @@ export default function ObservationChamber() {
       >
         {/* Static Low-Opacity Base Edge */}
         <div className="absolute inset-0 bg-white/[0.04]" />
-
-        {/* Animated Energy Pulse Removed */}
 
         {/* Localized Glow Response on Border (Cursor Proximity) */}
         <div 

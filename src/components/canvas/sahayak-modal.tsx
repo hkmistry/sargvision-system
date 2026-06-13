@@ -43,7 +43,7 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto px-4 py-8">
+        <div className="fixed inset-0 z-50 flex items-start sm:items-center justify-center overflow-x-hidden overflow-y-auto px-4 py-6 sm:py-8">
           {/* Backdrop with soft blur */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -89,7 +89,7 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="p-8 md:p-10 flex flex-col justify-center items-center text-center space-y-6 my-8 animate-fade-in"
+                    className="p-6 md:p-10 flex flex-col justify-center items-center text-center space-y-6 my-6 md:my-8 animate-fade-in"
                   >
                     <div className="w-14 h-14 rounded-full bg-[#2563EB]/5 dark:bg-blue-500/5 border border-[#2563EB]/25 dark:border-blue-500/20 flex items-center justify-center">
                       <Check className="w-6 h-6 text-[#2563EB] dark:text-blue-400" />
@@ -152,8 +152,8 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
                       </div>
                     </div>
 
-                    {/* Form Fields - Perfectly parallel grid layout. Hidden scrollbars completely on desktop */}
-                    <div className="p-6 md:p-8 space-y-5 overflow-y-auto max-h-[520px] md:max-h-[600px] [&::-webkit-scrollbar]:hidden relative z-20">
+                    {/* Form Fields - Parallel grid flow. Scrollable on desktop, full height on mobile */}
+                    <div className="p-6 md:p-8 space-y-5 md:overflow-y-auto md:max-h-[450px] lg:max-h-[550px] [&::-webkit-scrollbar]:hidden relative z-20">
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         {/* Full Name */}

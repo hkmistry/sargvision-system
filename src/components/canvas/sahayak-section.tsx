@@ -151,7 +151,7 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
 
   return (
     <section id="sahayak" className={cn(
-      "relative w-full py-32 z-10 px-4 md:px-8 animate-fade-in select-none overflow-hidden bg-transparent"
+      "relative w-full py-16 md:py-32 z-10 px-4 md:px-8 animate-fade-in select-none overflow-hidden bg-transparent"
     )}>
 
       {/* ═══════════════════════════════════════════
@@ -161,7 +161,7 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
         <motion.div
           initial={{ opacity: 0.9, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center space-y-5"
         >
@@ -279,7 +279,7 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.8 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="text-center space-y-3 select-none"
           >
@@ -306,7 +306,7 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95, y: 15 }}
                     whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.15 }}
+                    viewport={{ once: true, amount: 0.1 }}
                     transition={{
                       type: "spring",
                       stiffness: 100,
@@ -371,79 +371,67 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
             </div>
           </div>
 
-          {/* Mobile Vertical Timeline Flow (visible on mobile screens only) */}
-          <div className="block md:hidden space-y-6 relative pl-6 mt-8">
-            {/* Vertical Timeline Path line */}
-            <div className="absolute left-[15px] top-2 bottom-2 w-[1px] bg-slate-200 dark:bg-slate-800/80" />
-
+          {/* Mobile Vertical Flow (visible on mobile screens only) */}
+          <div className="block md:hidden space-y-6 mt-8 w-full">
             {flowSteps.map((step, index) => (
               <motion.div
                 key={step.id}
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative flex gap-5 items-start"
+                className="relative flex justify-center w-full"
               >
-                {/* Timeline Bullet Node */}
-                <div className={cn(
-                  "w-8 h-8 rounded-full flex items-center justify-center border font-mono text-[10px] font-bold z-10 shrink-0 transition-all duration-300",
-                  isDark 
-                    ? "bg-[#050816] border-slate-800 text-slate-400" 
-                    : "bg-white border-slate-200 text-slate-500"
-                )}>
-                  {step.id}
-                </div>
-
                 {/* Card Container */}
                 <div className={cn(
-                  "flex-grow p-5 rounded-2xl flex items-center justify-between gap-4 border transition-all duration-350 relative overflow-hidden group/flow text-left",
+                  "p-4 flex flex-col justify-between text-left min-h-[170px] w-[200px] sm:w-[220px] shrink-0 relative overflow-hidden z-10 transition-all duration-350 group/flow rounded-2xl",
                   isDark
                     ? "bg-[#04060E]/90 border-2 border-slate-800/80 hover:border-slate-700/80 hover:bg-[#070B16]"
                     : "bg-white border-2 border-[#E2E8F0] shadow-sm hover:border-[#CBD5E1] hover:bg-slate-50/30 hover:shadow-md"
                 )}>
-                  <div className="space-y-1.5">
+                  <div className="flex items-center justify-between relative z-10">
                     <span className={cn(
-                      "font-mono uppercase font-bold text-[8px] tracking-wider block",
-                      isDark ? "text-slate-500" : "text-slate-500"
+                      "font-mono uppercase font-bold text-[9px] tracking-wider",
+                      isDark ? "text-slate-400" : "text-slate-500"
                     )}>
                       {step.tag}
                     </span>
-                    <h4 className={cn(
-                      "text-xs uppercase font-mono font-bold tracking-wider transition-colors duration-300",
-                      isDark ? "text-white" : "text-[#0F172A]"
-                    )}>
-                      {step.title}
-                    </h4>
-                    <p className={cn(
-                      "text-[9px] font-normal font-mono tracking-wider uppercase",
-                      isDark ? "text-slate-400" : "text-slate-600"
-                    )}>
-                      {step.sub}
-                    </p>
-                  </div>
-
-                  {/* Icon & Status indicator */}
-                  <div className="flex items-center gap-3 shrink-0">
-                    <div className={cn(
-                      "p-2 rounded-full transition-all duration-300",
-                      isDark
-                        ? cn("bg-white/[0.02] border border-white/[0.05]", step.colorTheme.bgDark)
-                        : cn("bg-slate-50 border border-slate-200", step.colorTheme.bgLight)
-                    )}>
-                      <step.icon className={cn(
-                        "w-5 h-5",
-                        isDark
-                          ? cn("text-slate-400", step.colorTheme.iconDark)
-                          : cn("text-slate-600", step.colorTheme.iconLight)
-                      )} />
-                    </div>
                     <span className={cn(
                       "w-2 h-2 rounded-full transition-all duration-300",
                       isDark
                         ? cn("bg-slate-700", step.colorTheme.dotDark)
                         : cn("bg-[#94A3B8]", step.colorTheme.dotLight)
                     )} />
+                  </div>
+
+                  <div className="relative z-10 mt-auto pt-6 flex flex-col items-center text-center">
+                    <div className={cn(
+                      "mb-4 p-3 rounded-full transition-all duration-300 group-hover/flow:scale-105",
+                      isDark
+                        ? cn("bg-white/[0.02] border border-white/[0.05]", step.colorTheme.bgDark)
+                        : cn("bg-slate-50 border border-slate-200", step.colorTheme.bgLight)
+                    )}>
+                      <step.icon className={cn(
+                        "w-7 h-7 transition-colors duration-300",
+                        isDark
+                          ? cn("text-slate-400", step.colorTheme.iconDark)
+                          : cn("text-slate-600", step.colorTheme.iconLight)
+                      )} />
+                    </div>
+
+                    <h4 className={cn(
+                      "text-[11px] uppercase font-mono font-bold tracking-wider transition-colors duration-300",
+                      isDark ? "text-white" : "text-[#0F172A]"
+                    )}>
+                      {step.title}
+                    </h4>
+
+                    <p className={cn(
+                      "text-[9px] font-normal font-mono tracking-wider uppercase mt-1.5",
+                      isDark ? "text-slate-400" : "text-slate-600"
+                    )}>
+                      {step.sub}
+                    </p>
                   </div>
                 </div>
               </motion.div>

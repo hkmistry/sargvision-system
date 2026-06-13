@@ -77,7 +77,7 @@ export default function HomePage() {
             </div>
             
             <h1 className={cn(
-              "font-editorial text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[90px] tracking-tight leading-[1.05] font-semibold",
+              "font-editorial text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-[78px] tracking-tight leading-[1.1] font-semibold xl:max-w-[740px] w-full",
               theme === "dark" ? "text-white" : "text-[#0F172A]"
             )}>
               Building India's <br className="hidden md:inline" />
@@ -90,19 +90,19 @@ export default function HomePage() {
                 ? "text-neutral-400 max-w-xl" 
                 : "text-[#475569] max-w-xl"
             )}>
-              <p className={cn("font-semibold flex flex-wrap items-center justify-center lg:justify-start gap-x-2 gap-y-1.5", theme === "dark" ? "text-gray-200" : "text-[#0F172A]")}>
+              <p className={cn("font-semibold flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-2 text-sm md:text-base", theme === "dark" ? "text-gray-200" : "text-[#0F172A]")}>
                 <span>Sovereign Intelligence</span>
-                <span className="text-neutral-300 dark:text-neutral-700 font-normal">|</span>
+                <span className="text-neutral-300 dark:text-neutral-700 font-normal hidden sm:inline">|</span>
                 <span>Physical AI</span>
-                <span className="text-neutral-300 dark:text-neutral-700 font-normal">|</span>
-                <span className="inline-flex items-center px-2 py-0.5 text-xs font-mono font-bold tracking-wider rounded bg-slate-100 dark:bg-white/5 text-slate-800 dark:text-gray-200 border border-slate-200 dark:border-white/10 ml-0.5">
+                <span className="text-neutral-300 dark:text-neutral-700 font-normal hidden sm:inline">|</span>
+                <span className="inline-flex items-center px-2 py-0.5 text-xs font-mono font-bold tracking-wider rounded bg-slate-100 dark:bg-white/5 text-slate-800 dark:text-gray-200 border border-slate-200 dark:border-white/10 sm:ml-0.5">
                   #AGI4Bharat
                 </span>
               </p>
               <p>Deploying the intelligent systems that power India's future.</p>
             </div>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-3">
               <button
                 onClick={() => setModalOpen(true)}
                 className={cn(
@@ -141,7 +141,7 @@ export default function HomePage() {
       <StrategicDirectiveSection />
 
       {/* ================= MANIFESTO MOMENT — Surface Level 1 ================= */}
-      <section id="manifesto" className="relative min-h-screen flex items-center justify-center py-24 md:py-0 overflow-hidden z-10 px-4 md:px-8 select-none bg-transparent">
+      <section id="manifesto" className="relative min-h-[50vh] md:min-h-screen flex items-center justify-center py-16 md:py-0 overflow-hidden z-10 px-4 md:px-8 select-none bg-transparent">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dark-base/5 to-transparent pointer-events-none" />
         
         <div className="max-w-4xl mx-auto w-full flex flex-col justify-center">
@@ -150,7 +150,7 @@ export default function HomePage() {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.45 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="space-y-4 text-center"
             >
@@ -170,7 +170,7 @@ export default function HomePage() {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.45 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
               className="space-y-4 text-center"
             >
@@ -190,7 +190,7 @@ export default function HomePage() {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.45 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
               className="space-y-4 text-center"
             >
