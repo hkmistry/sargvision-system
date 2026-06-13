@@ -36,10 +36,20 @@ export default function StrategicVerticals() {
       label: "U01 Army",
       name: "Army",
       domain: "ARMY",
-      title: "Spatial Telemetry & Object Detection",
+      title: "TACTICAL INTELLIGENCE & OBJECT DETECTION",
       mission: "Total Situational Awareness.",
       coords: "LAT: 34.0837° N // LON: 74.7973° E",
-      description: "Edge compilation engines optimized for remote border deployments. Running multi-spectral computer vision networks at under 15ms latency, SARGVISION classifies object signatures, drone threat envelopes, and unauthorized coordinates directly on the hardware edge without requiring internet connection.",
+      overview: "Deploying custom vision models and sovereign chat systems to deliver secure, real-time threat intelligence at the tactical frontier.",
+      features: [
+        {
+          heading: "Military Object Detection",
+          text: "Deploying state-of-the-art computer vision models for high-precision military object detection, engineered to perform in the rugged and unstructured environments of the Indian borders."
+        },
+        {
+          heading: "Military Chatbot",
+          text: "A secure, sovereign chatbot framework designed for tactical communication, providing soldiers and commanders with instant, profile-aware intelligence and operational support."
+        }
+      ],
       color: "blue",
       textGlow: "",
       borderColor: "border-blue-500/20",
@@ -75,10 +85,20 @@ export default function StrategicVerticals() {
       label: "U02 Space",
       name: "Space",
       domain: "SPACE",
-      title: "Orbital Remote Sensing & Edge Processing",
-      mission: "LEO Inference Payload Operations.",
+      title: "ASTRAAI & ORBITAL EDGE",
+      mission: "Autonomy in Orbit.",
       coords: "ALT: 540KM // ECC: 0.00014 // INC: 97.4°",
-      description: "Low-power inference payload execution matrices designed for LEO satellites. Processes remote sensing telemetry on-orbit to optimize downlink bandwidth, filter cloud anomalies, and compile real-time geospatial intelligence.",
+      overview: "Researching multi-agent AI frameworks and orbital edge computation payloads for sovereign space capabilities.",
+      features: [
+        {
+          heading: "AstraAI",
+          text: "A multi-agent AI framework designed for sovereign space capabilities, including constellation management and interplanetary mission agents."
+        },
+        {
+          heading: "Space Edge Computing",
+          text: "Researching and implementing AI processing directly on spacecraft, allowing for real-time data analysis and autonomous control without the latency of ground stations."
+        }
+      ],
       color: "indigo",
       textGlow: "",
       borderColor: "border-indigo-500/20",
@@ -112,10 +132,16 @@ export default function StrategicVerticals() {
       label: "U03 Navy",
       name: "Navy",
       domain: "NAVY",
-      title: "Maritime Domain Awareness",
-      mission: "Littoral Ingestion Operations.",
+      title: "MARITIME DOMAIN AWARENESS",
+      mission: "Oceanic Sovereignty.",
       coords: "DEPTH: -450M // SECTOR: BAY_OF_BENGAL",
-      description: "Acoustics engines on subsea hydrophone clusters and littoral grids, compiling subsea audio waveforms directly to classify vessel signatures and subsurface telemetry for absolute maritime dominance.",
+      overview: "Leveraging agentic intelligence platforms to coordinate maritime surveillance and domain awareness operations.",
+      features: [
+        {
+          heading: "Autonomous Coordination",
+          text: "Leveraging agentic AI to provide real-time situational awareness and coordination for maritime operations, ensuring constant monitoring and response capabilities across vast oceanic frontiers."
+        }
+      ],
       color: "blue",
       textGlow: "",
       borderColor: "border-blue-500/20",
@@ -149,8 +175,7 @@ export default function StrategicVerticals() {
 
   return (
     <section id="strategic-verticals" className={cn(
-      "relative py-36 z-10 px-4 md:px-8 overflow-hidden",
-      isDark ? "bg-transparent" : "bg-[#F8FAFD]"
+      "relative py-36 z-10 px-4 md:px-8 overflow-hidden bg-transparent"
     )}>
 
 
@@ -222,7 +247,34 @@ export default function StrategicVerticals() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
 
-          <div className="col-span-12 lg:col-span-5 flex flex-col justify-between space-y-4 h-full">
+          {/* Mobile Segmented Capsule Selectors (visible on mobile only) */}
+          <div className="col-span-12 lg:hidden flex items-center justify-between p-1.5 rounded-2xl bg-slate-900/5 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 backdrop-blur-md select-none w-full mb-2">
+            {verticals.map((item) => {
+              const isActive = activeTab === item.id;
+              return (
+                <button
+                  suppressHydrationWarning
+                  key={item.id}
+                  onClick={() => setActiveTab(item.id)}
+                  className={cn(
+                    "flex-grow py-3 px-3 rounded-xl text-center font-mono text-[10px] font-bold tracking-widest uppercase transition-all duration-300 cursor-pointer outline-none focus:outline-none",
+                    isActive
+                      ? isDark
+                        ? "bg-[#050816] text-white border border-slate-800 shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)]"
+                        : "bg-white text-[#0F172A] border border-slate-200 shadow-sm"
+                      : isDark
+                        ? "text-neutral-500 hover:text-neutral-300"
+                        : "text-[#64748B] hover:text-[#0F172A]"
+                  )}
+                >
+                  // {item.domain}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Desktop Left Sidebar Tabs (visible on desktop only) */}
+          <div className="hidden lg:flex lg:flex-col lg:col-span-5 justify-between space-y-4 h-full">
             {verticals.map((item) => {
               const isActive = activeTab === item.id;
               const themeColorClass = isDark
@@ -239,6 +291,7 @@ export default function StrategicVerticals() {
 
               return (
                 <motion.button
+                  suppressHydrationWarning
                   key={item.id}
                   onClick={() => setActiveTab(item.id)}
                   initial={{
@@ -261,7 +314,7 @@ export default function StrategicVerticals() {
                   )}
                 >
                   <div className="absolute right-4 top-2 bottom-2 w-1/3 opacity-[0.03] pointer-events-none select-none font-mono text-[5px] text-right leading-tight overflow-hidden break-all">
-                    {item.color === 'cyan' ? 'SECURE_U01_LINK_ESTABLISHED' : item.color === 'purple' ? 'ORBITAL_LINK_U02_SYNCED' : 'HYDRO_SENSOR_U03_ACTIVE'}
+                    {item.color === 'blue' && item.id === 0 ? 'SECURE_U01_LINK_ESTABLISHED' : item.color === 'indigo' ? 'ORBITAL_LINK_U02_SYNCED' : 'HYDRO_SENSOR_U03_ACTIVE'}
                   </div>
 
                   <div className="flex flex-col justify-between flex-1 relative z-20 pointer-events-none w-full h-full">
@@ -271,7 +324,7 @@ export default function StrategicVerticals() {
                           "text-[9px] font-bold px-1.5 py-0.5 rounded border transition-all duration-500",
                           isDark
                             ? isActive
-                              ? item.color === 'cyan' ? 'bg-cyan-500/10 border-cyan-500/30 text-cyan-400' : item.color === 'purple' ? 'bg-purple-500/10 border-purple-500/30 text-purple-400' : 'bg-blue-500/10 border-blue-500/30 text-blue-400'
+                              ? item.color === 'indigo' ? 'bg-indigo-500/10 border-indigo-500/30 text-indigo-400' : 'bg-blue-500/10 border-blue-500/30 text-blue-400'
                               : "bg-white/5 border-white/5 text-neutral-500"
                             : isActive
                               ? "bg-blue-50 border-[#2563EB]/30 text-[#2563EB]"
@@ -285,7 +338,7 @@ export default function StrategicVerticals() {
                         "transition-all duration-500",
                         isDark
                           ? isActive
-                            ? item.color === 'cyan' ? 'text-cyan-400' : item.color === 'purple' ? 'text-purple-400' : 'text-blue-400'
+                            ? item.color === 'indigo' ? 'text-indigo-400' : 'text-blue-400'
                             : "text-neutral-500 group-hover:text-neutral-400"
                           : isActive
                             ? "text-[#2563EB]"
@@ -327,7 +380,7 @@ export default function StrategicVerticals() {
                         "mt-2 text-[10px] font-mono uppercase tracking-[0.2em] transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]",
                         isDark
                           ? isActive
-                            ? item.color === 'cyan' ? 'text-cyan-400/70' : item.color === 'purple' ? 'text-purple-400/70' : 'text-blue-400/70'
+                            ? item.color === 'indigo' ? 'text-indigo-400/70' : 'text-blue-400/70'
                             : 'text-neutral-600 group-hover:text-neutral-400 transition-colors duration-1000'
                           : "text-[#64748B]"
                       )}>
@@ -339,7 +392,7 @@ export default function StrategicVerticals() {
                           "font-mono text-[7px] tracking-[0.3em] uppercase transition-colors duration-1000",
                           isDark
                             ? isActive
-                              ? item.color === 'cyan' ? 'text-cyan-400/50' : item.color === 'purple' ? 'text-purple-400/50' : 'text-blue-400/50'
+                              ? item.color === 'indigo' ? 'text-indigo-400/50' : 'text-blue-400/50'
                               : 'text-neutral-500/60'
                             : "text-[#64748B]"
                         )}>
@@ -354,7 +407,7 @@ export default function StrategicVerticals() {
                     )}>
                       <span>{item.coords}</span>
                       <div className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${isActive
-                        ? item.color === 'cyan' ? 'bg-cyan-500' : item.color === 'purple' ? 'bg-purple-500' : 'bg-blue-500'
+                        ? item.color === 'indigo' ? 'bg-indigo-500' : 'bg-blue-500'
                         : 'bg-neutral-600'
                         }`} />
                     </div>
@@ -382,98 +435,59 @@ export default function StrategicVerticals() {
             )}
           >
             <div className="p-8 md:p-10 flex flex-col justify-between h-full z-20 relative">
-              <div className="space-y-8">
-                <div className={cn(
-                  "flex justify-between items-center font-mono text-[9px] tracking-wider",
-                  isDark ? "text-neutral-500" : "text-[#64748B]"
-                )}>
-                  <div className="flex items-center gap-2">
-                    <div className={cn("font-bold px-2 py-0.5 rounded border transition-colors duration-500",
-                      isDark
-                        ? current.color === 'indigo'
-                          ? 'bg-indigo-500/10 border-indigo-500/30 text-indigo-400'
-                          : 'bg-blue-500/10 border-blue-500/30 text-blue-400'
-                        : current.color === 'indigo'
-                          ? 'bg-[#8B5CF6]/5 border-[#8B5CF6]/20 text-[#8B5CF6]'
-                          : 'bg-blue-50 border-blue-200 text-blue-600'
-                    )}>
-                      {current.uid}
-                    </div>
-                    <div className={cn(
-                      "font-bold transition-colors duration-500",
-                      isDark ? current.activeTextColor : (current.color === 'indigo' ? 'text-indigo-600' : 'text-blue-600')
-                    )}>
-                      {current.domain} // SOVEREIGN_INTELLIGENCE // SECURE
-                    </div>
-                  </div>
-                  <div className="opacity-60">{current.coords}</div>
-                </div>
-
-                <div className="space-y-6">
+              <div className="space-y-6">
+                {/* The Description Title & Mission */}
+                <div className="space-y-4">
                   <h3 className={cn(
                     "text-3xl md:text-4xl font-bold tracking-tight font-editorial leading-tight transition-colors duration-300",
                     isDark ? "text-white" : "text-[#0F172A]"
                   )}>
                     {current.title}
                   </h3>
-
-                  <div className="space-y-4">
-                    <p className={cn(
-                      "text-xs md:text-sm leading-relaxed font-light font-body",
+                  <div className="space-y-2">
+                    <span className={cn(
+                      "font-editorial italic text-xs md:text-sm block",
                       isDark ? "text-neutral-300" : "text-[#334155]"
                     )}>
-                      <span className={cn(
-                        "font-mono text-[10px] font-bold uppercase tracking-wider block mb-2",
-                        isDark ? "text-neutral-200" : "text-[#0F172A]"
+                      The Mission: {current.mission}
+                    </span>
+                    {current.overview && (
+                      <p className={cn(
+                        "text-[13px] md:text-[14px] leading-relaxed tracking-wide font-body font-light mt-3 pt-3 border-t",
+                        isDark ? "text-neutral-300 border-white/5" : "text-[#334155] border-slate-100"
                       )}>
-                        MISSION FOCUS: {current.mission}
-                      </span>
-                      {current.description}
-                    </p>
+                        {current.overview}
+                      </p>
+                    )}
                   </div>
                 </div>
 
-                <div className={cn(
-                  "border-t pt-6 space-y-4",
-                  isDark ? "border-white/[0.04]" : "border-[rgba(15,23,42,0.08)]"
-                )}>
-                  <div className={cn(
-                    "flex justify-between items-center text-[10px] font-mono font-bold",
-                    isDark ? "text-neutral-500" : "text-[#64748B]"
-                  )}>
-                    <div>OPERATIONAL SYSTEM SPECIFICATIONS</div>
-                    <div className="flex items-center gap-1.5 opacity-80">
-                      <span className={cn("w-1.5 h-1.5 rounded-full", 
-                        current.color === 'indigo' ? 'bg-indigo-500' : 'bg-blue-500'
-                      )} />
-                      STATUS: VERIFIED
+                {/* Features List with Theme Colored Borders */}
+                <div className="space-y-8 pt-4">
+                  {current.features.map((feature, idx) => (
+                    <div 
+                      key={idx} 
+                      className={cn(
+                        "pl-4 border-l-2 transition-all duration-500 text-left",
+                        current.color === 'indigo' 
+                          ? "border-indigo-500/60 dark:border-indigo-400/40" 
+                          : "border-blue-500/60 dark:border-blue-400/40"
+                      )}
+                    >
+                      <h4 className={cn(
+                        "font-sans font-bold text-[13px] md:text-[14px] uppercase tracking-tight leading-tight mb-1.5",
+                        isDark ? "text-slate-200" : "text-[#1E293B]"
+                      )}>
+                        {feature.heading}
+                      </h4>
+                      <p className={cn(
+                        "text-[12.5px] md:text-[14px] leading-relaxed font-light font-body",
+                        isDark ? "text-neutral-400" : "text-[#475569]"
+                      )}>
+                        {feature.text}
+                      </p>
                     </div>
-                  </div>
-
-                  <div className={cn(
-                    "grid grid-cols-2 gap-x-6 gap-y-3 pt-2",
-                    isDark ? "text-neutral-400" : "text-[#475569]"
-                  )}>
-                    {current.capabilities.map((cap, index) => (
-                      <div
-                        key={index}
-                        className={cn(
-                          "flex justify-between items-center font-mono text-[9px] pb-1.5 border-b border-dashed",
-                          isDark ? "border-white/5" : "border-slate-200"
-                        )}
-                      >
-                        <span className="opacity-70 uppercase tracking-wider">{cap.name}</span>
-                        <span className={cn(
-                          "font-bold transition-colors duration-500",
-                          isDark 
-                            ? (current.color === 'indigo' ? 'text-indigo-400' : 'text-blue-400')
-                            : (current.color === 'indigo' ? 'text-indigo-600' : 'text-blue-600')
-                        )}>
-                          {cap.value}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                  ))}
                 </div>
               </div>
 

@@ -194,7 +194,7 @@ export default function SovereignStack() {
                   "font-bold",
                   isDark ? "text-blue-400" : "text-[#2563EB]"
                 )}>
-                  sovereign intelligence infrastructure
+                  sovereign nervous system
                 </span>{" "}
                 for a new era."
               </h3>

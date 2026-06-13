@@ -32,6 +32,7 @@ import ObservationChamber from "@/components/canvas/observation-chamber";
 import SovereignStack from "@/components/canvas/sovereign-stack";
 import ContactSection from "@/components/canvas/contact-section";
 import SahayakModal from "@/components/canvas/sahayak-modal";
+import StrategicDirectiveSection from "@/components/canvas/strategic-directive";
 
 export default function HomePage() {
   const { theme } = useTheme();
@@ -136,41 +137,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= SAHAYAK ORCHESTRATION SECTION ================= */}
-      <SahayakSection onOpenModal={() => setModalOpen(true)} />
+      {/* ================= STRATEGIC DIRECTIVE SECTION ================= */}
+      <StrategicDirectiveSection />
 
       {/* ================= MANIFESTO MOMENT — Surface Level 1 ================= */}
-      <section id="manifesto" className={cn(
-        "relative min-h-screen flex items-center justify-center py-24 md:py-0 overflow-hidden z-10 px-4 md:px-8 select-none",
-        theme === "dark" ? "bg-transparent" : "bg-[#F8FAFD]"
-      )}>
+      <section id="manifesto" className="relative min-h-screen flex items-center justify-center py-24 md:py-0 overflow-hidden z-10 px-4 md:px-8 select-none bg-transparent">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dark-base/5 to-transparent pointer-events-none" />
         
-        <div className="max-w-4xl mx-auto w-full flex flex-col justify-center space-y-20 md:space-y-28">
-          <div className="flex flex-col items-center text-center space-y-4">
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 0.8, y: 0 }}
-              viewport={{ once: true, amount: 0.45 }}
-              transition={{ duration: 0.8 }}
-              className={cn(
-                "inline-flex items-center gap-2 px-3 py-1 rounded-full backdrop-blur-md",
-                theme === "dark"
-                  ? "bg-white/5 border border-white/10"
-                  : "bg-[#0F172A]/5 border border-[#E2E8F0]"
-              )}
-            >
-              <span className={cn(
-                "w-1.5 h-1.5 rounded-full",
-                theme === "dark" ? "bg-slate-700" : "bg-[#DB2777]"
-              )} />
-              <span className={cn(
-                "text-[10px] font-bold uppercase tracking-widest",
-                theme === "dark" ? "text-slate-400" : "text-[#DB2777]"
-              )}>SARGVISION Manifesto</span>
-            </motion.div>
-          </div>
-
+        <div className="max-w-4xl mx-auto w-full flex flex-col justify-center">
           <div className="space-y-16 md:space-y-24">
             {/* Belief */}
             <motion.div
@@ -235,6 +209,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ================= SAHAYAK ORCHESTRATION SECTION ================= */}
+      <SahayakSection onOpenModal={() => setModalOpen(true)} />
 
       {/* ================= HUMAN CAPITAL INFRA SECTION ================= */}
       <HumanCapitalSection />

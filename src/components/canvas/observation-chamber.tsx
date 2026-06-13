@@ -25,7 +25,7 @@ export default function ObservationChamber() {
         "relative w-full h-[550px] overflow-hidden rounded-3xl transition-all duration-700",
         isDark 
           ? "bg-[#020513]/40" 
-          : "bg-[#0F172A] border border-[rgba(15,23,42,0.08)] shadow-[0_30px_80px_rgba(15,23,42,0.15)] ring-1 ring-white/10 ring-inset"
+          : "bg-[#0F172A] border border-slate-800/80 shadow-[0_20px_50px_rgba(15,23,42,0.04)] ring-1 ring-white/5 ring-inset"
       )}
       style={{
         backdropFilter: isDark ? "blur(24px)" : undefined,

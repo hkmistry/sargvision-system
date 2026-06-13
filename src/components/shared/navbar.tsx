@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
+  const isDark = theme === "dark";
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("");
@@ -209,7 +210,12 @@ export default function Navbar() {
         {/* Mobile menu trigger */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="flex md:hidden text-gray-300 hover:text-white focus:outline-none ml-auto"
+          className={cn(
+            "flex md:hidden focus:outline-none ml-auto transition-colors duration-300 cursor-pointer",
+            isDark
+              ? "text-gray-300 hover:text-white"
+              : "text-slate-800 hover:text-[#0F172A]"
+          )}
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -240,8 +246,8 @@ export default function Navbar() {
               onClick={toggleTheme}
               className="flex items-center justify-between border-t border-[#E2E8F0] dark:border-white/5 pt-4 cursor-pointer select-none"
             >
-              <span className="text-[10px] font-bold text-gray-400 tracking-wider">THEME ENGINE</span>
-              <div className="flex items-center gap-1.5 text-[9px] font-bold tracking-wider text-gray-400">
+              <span className="text-[10px] font-bold text-slate-500 dark:text-gray-400 tracking-wider">THEME ENGINE</span>
+              <div className="flex items-center gap-1.5 text-[9px] font-bold tracking-wider text-slate-500 dark:text-gray-400">
                 {theme === "dark" ? (
                   <>
                     <Sun className="w-3.5 h-3.5 text-amber-400" />
@@ -260,8 +266,8 @@ export default function Navbar() {
               onClick={() => setIsAudioOn(!isAudioOn)}
               className="flex items-center justify-between border-t border-[#E2E8F0] dark:border-white/5 pt-4 cursor-pointer select-none"
             >
-              <span className="text-[10px] font-bold text-[#64748B] dark:text-gray-400 tracking-wider">AUDIO MONITOR</span>
-              <div className="flex items-center gap-1.5 text-[9px] font-bold tracking-wider text-[#64748B] dark:text-gray-400">
+              <span className="text-[10px] font-bold text-slate-500 dark:text-gray-400 tracking-wider">AUDIO MONITOR</span>
+              <div className="flex items-center gap-1.5 text-[9px] font-bold tracking-wider text-slate-500 dark:text-gray-400">
                 {isAudioOn ? (
                   <>
                     <Volume2 className="w-3.5 h-3.5 text-accent-cyan" />
@@ -269,14 +275,14 @@ export default function Navbar() {
                   </>
                 ) : (
                   <>
-                    <VolumeX className="w-3.5 h-3.5 text-[#64748B] dark:text-gray-500" />
+                    <VolumeX className="w-3.5 h-3.5 text-slate-500 dark:text-gray-500" />
                     <span>AUDIO OFF</span>
                   </>
                 )}
               </div>
             </div>
             <div className="flex items-center justify-between border-t border-[#E2E8F0] dark:border-white/5 pt-4">
-              <span className="text-[10px] font-bold text-[#64748B] dark:text-gray-400 tracking-wider">SYSTEM STATUS</span>
+              <span className="text-[10px] font-bold text-slate-500 dark:text-gray-400 tracking-wider">SYSTEM STATUS</span>
               <div className="flex items-center gap-1.5 text-[9px] text-accent-cyan font-bold tracking-wider">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent-cyan"></span>

@@ -151,8 +151,7 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
 
   return (
     <section id="sahayak" className={cn(
-      "relative w-full py-32 z-10 px-4 md:px-8 animate-fade-in select-none overflow-hidden",
-      isDark ? "bg-transparent" : "bg-[#F8FAFD]"
+      "relative w-full py-32 z-10 px-4 md:px-8 animate-fade-in select-none overflow-hidden bg-transparent"
     )}>
 
       {/* ═══════════════════════════════════════════
@@ -298,11 +297,9 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
             </h3>
           </motion.div>
 
-          <div className="relative w-full overflow-x-auto pt-8 pb-12 px-2 lg:px-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          {/* Desktop/Tablet Horizontal Orchestration Pipeline */}
+          <div className="hidden md:block relative w-full overflow-x-auto pt-8 pb-12 px-2 lg:px-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             <div className="relative flex items-stretch justify-between z-10 mx-auto w-full min-w-[1000px] max-w-[1400px]">
-
-
-
               {flowSteps.map((step, index) => (
                 <React.Fragment key={step.id}>
                   {/* Node Card */}
@@ -372,6 +369,85 @@ export default function SahayakSection({ onOpenModal }: SahayakSectionProps) {
                 </React.Fragment>
               ))}
             </div>
+          </div>
+
+          {/* Mobile Vertical Timeline Flow (visible on mobile screens only) */}
+          <div className="block md:hidden space-y-6 relative pl-6 mt-8">
+            {/* Vertical Timeline Path line */}
+            <div className="absolute left-[15px] top-2 bottom-2 w-[1px] bg-slate-200 dark:bg-slate-800/80" />
+
+            {flowSteps.map((step, index) => (
+              <motion.div
+                key={step.id}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative flex gap-5 items-start"
+              >
+                {/* Timeline Bullet Node */}
+                <div className={cn(
+                  "w-8 h-8 rounded-full flex items-center justify-center border font-mono text-[10px] font-bold z-10 shrink-0 transition-all duration-300",
+                  isDark 
+                    ? "bg-[#050816] border-slate-800 text-slate-400" 
+                    : "bg-white border-slate-200 text-slate-500"
+                )}>
+                  {step.id}
+                </div>
+
+                {/* Card Container */}
+                <div className={cn(
+                  "flex-grow p-5 rounded-2xl flex items-center justify-between gap-4 border transition-all duration-350 relative overflow-hidden group/flow text-left",
+                  isDark
+                    ? "bg-[#04060E]/90 border-2 border-slate-800/80 hover:border-slate-700/80 hover:bg-[#070B16]"
+                    : "bg-white border-2 border-[#E2E8F0] shadow-sm hover:border-[#CBD5E1] hover:bg-slate-50/30 hover:shadow-md"
+                )}>
+                  <div className="space-y-1.5">
+                    <span className={cn(
+                      "font-mono uppercase font-bold text-[8px] tracking-wider block",
+                      isDark ? "text-slate-500" : "text-slate-500"
+                    )}>
+                      {step.tag}
+                    </span>
+                    <h4 className={cn(
+                      "text-xs uppercase font-mono font-bold tracking-wider transition-colors duration-300",
+                      isDark ? "text-white" : "text-[#0F172A]"
+                    )}>
+                      {step.title}
+                    </h4>
+                    <p className={cn(
+                      "text-[9px] font-normal font-mono tracking-wider uppercase",
+                      isDark ? "text-slate-400" : "text-slate-600"
+                    )}>
+                      {step.sub}
+                    </p>
+                  </div>
+
+                  {/* Icon & Status indicator */}
+                  <div className="flex items-center gap-3 shrink-0">
+                    <div className={cn(
+                      "p-2 rounded-full transition-all duration-300",
+                      isDark
+                        ? cn("bg-white/[0.02] border border-white/[0.05]", step.colorTheme.bgDark)
+                        : cn("bg-slate-50 border border-slate-200", step.colorTheme.bgLight)
+                    )}>
+                      <step.icon className={cn(
+                        "w-5 h-5",
+                        isDark
+                          ? cn("text-slate-400", step.colorTheme.iconDark)
+                          : cn("text-slate-600", step.colorTheme.iconLight)
+                      )} />
+                    </div>
+                    <span className={cn(
+                      "w-2 h-2 rounded-full transition-all duration-300",
+                      isDark
+                        ? cn("bg-slate-700", step.colorTheme.dotDark)
+                        : cn("bg-[#94A3B8]", step.colorTheme.dotLight)
+                    )} />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
 

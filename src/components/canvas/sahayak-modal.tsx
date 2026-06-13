@@ -74,6 +74,7 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
 
               {/* Close Button */}
               <button
+                suppressHydrationWarning
                 onClick={onClose}
                 className="absolute top-4 right-4 text-slate-400 dark:text-white/40 hover:text-[#0F172A] dark:hover:text-white transition-colors p-1.5 hover:bg-slate-100 dark:hover:bg-white/5 rounded-lg cursor-pointer z-30"
               >
@@ -122,6 +123,7 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
                     </div>
 
                     <button
+                      suppressHydrationWarning
                       onClick={handleReset}
                       className="px-6 py-2.5 border border-slate-200 dark:border-white/10 hover:border-[#2563EB] dark:hover:border-white/20 bg-slate-50 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 rounded-full text-xs font-semibold text-[#64748B] dark:text-gray-300 hover:text-[#0F172A] dark:hover:text-white transition-all cursor-pointer"
                     >
@@ -160,6 +162,7 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
                             Full Name
                           </label>
                           <input
+                            suppressHydrationWarning
                             required
                             type="text"
                             placeholder="Your full name..."
@@ -188,6 +191,7 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
                             Work Email
                           </label>
                           <input
+                            suppressHydrationWarning
                             required
                             type="email"
                             placeholder="yourname@domain.com..."
@@ -218,6 +222,7 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
                             Company / Organization Name
                           </label>
                           <input
+                            suppressHydrationWarning
                             required
                             type="text"
                             placeholder="Organization name..."
@@ -247,6 +252,7 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
                           </label>
                           <div className="relative">
                             <select
+                              suppressHydrationWarning
                               required
                               value={formState.scale}
                               onChange={(e) => setFormState({ ...formState, scale: e.target.value })}
@@ -283,6 +289,7 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
                             Business Requirements
                           </label>
                           <textarea
+                            suppressHydrationWarning
                             required
                             placeholder="Describe your vision, objectives, and any specific requirements for this node..."
                             value={formState.requirements}
@@ -320,6 +327,7 @@ export default function SahayakModal({ isOpen, onClose }: SahayakModalProps) {
 
                       {/* Primary CTA - Directional Motion on hover & Edge Illumination */}
                       <button
+                        suppressHydrationWarning
                         type="submit"
                         className={cn(
                           "group px-6 py-3 text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-300 hover:-translate-y-[1px] hover:translate-x-[1px] border flex items-center justify-center gap-2 cursor-pointer focus:outline-none active:scale-[0.98]",

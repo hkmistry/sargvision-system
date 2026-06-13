@@ -263,8 +263,8 @@ export default function HumanCapitalSection() {
                                             %
                                         </span>
                                     </div>
-                                    <div className={cn("font-mono text-[8px] tracking-[0.2em] uppercase font-bold pt-1", isDark ? "text-slate-400" : "text-slate-500")}>
-                                        CAPABILITY INDEX
+                                    <div className={cn("font-mono text-[8px] tracking-[0.25em] uppercase font-bold pt-1", isDark ? "text-slate-400" : "text-slate-500")}>
+                                        READINESS_IDX
                                     </div>
                                     <div className="font-mono text-[5.5px] tracking-widest text-neutral-500 uppercase mt-0.5">
                                         [ VERIFIED PROFILE ]
@@ -333,60 +333,62 @@ export default function HumanCapitalSection() {
                             )}>
                                 HUMAN CAPITAL INFRASTRUCTURE
                             </span>
-                            <h2 className={cn(
-                              "text-4xl md:text-5xl font-editorial font-semibold tracking-tight leading-none",
-                              isDark ? "text-white" : "text-[#0F172A]"
-                            )}>
-                                National Talent Registry
-                            </h2>
-                        </div>
-
-                        <p className={cn(
-                          "text-sm md:text-base font-normal leading-relaxed max-w-2xl antialiased relative z-10",
-                          isDark ? "text-slate-300" : "text-slate-600"
-                        )}>
-                            National talent verification registry mapping graduate capabilities against standardized institutional benchmarks to accelerate verified regional hiring across Bharat.
-                        </p>
+                              <h2 className={cn(
+                                "text-4xl md:text-5xl font-editorial font-semibold tracking-tight leading-none",
+                                isDark ? "text-white" : "text-[#0F172A]"
+                              )}>
+                                  The Digital Twin
+                              </h2>
+                          </div>
+  
+                          <p className={cn(
+                            "text-sm md:text-base font-normal leading-relaxed max-w-2xl antialiased relative z-10",
+                            isDark ? "text-slate-300" : "text-slate-600"
+                          )}>
+                              A hyper-personalized AI-powered career co-pilot designed to navigate Indian students from all backgrounds through their professional development journey.
+                          </p>
 
                         <div className="w-full h-[1px] bg-gradient-to-r from-white/5 via-transparent to-transparent" />
 
                         {/* Interactive switches */}
-                        <div className="flex flex-wrap gap-4 font-mono text-[11px] tracking-widest relative z-10">
-                            <motion.button
-                                onClick={() => setActiveTab('score')}
-                                whileHover={{ y: -1.5, scale: 1.015 }}
-                                whileTap={{ scale: 0.98 }}
-                                className={cn(
-                                  "px-5 py-2.5 rounded-lg border transition-all duration-500 ease-out cursor-pointer",
-                                  isDark
-                                    ? activeTab === 'score'
-                                      ? "border-slate-700 bg-white/[0.04] text-white"
-                                      : "border-white/5 text-neutral-400 hover:text-neutral-200 hover:border-white/10 hover:bg-white/[0.02]"
-                                    : activeTab === 'score'
-                                      ? "border-slate-300 bg-slate-50 text-[#0F172A]"
-                                      : "border-[#E2E8F0] text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50"
-                                )}
-                            >
-                                // SKILL_ALIGNMENT
-                            </motion.button>
-                            <motion.button
-                                onClick={() => setActiveTab('radar')}
-                                whileHover={{ y: -1.5, scale: 1.015 }}
-                                whileTap={{ scale: 0.98 }}
-                                className={cn(
-                                  "px-5 py-2.5 rounded-lg border transition-all duration-500 ease-out cursor-pointer",
-                                  isDark
-                                    ? activeTab === 'radar'
-                                      ? "border-slate-700 bg-white/[0.04] text-white"
-                                      : "border-white/5 text-neutral-400 hover:text-neutral-200 hover:border-white/10 hover:bg-white/[0.02]"
-                                    : activeTab === 'radar'
-                                      ? "border-slate-300 bg-slate-50 text-[#0F172A]"
-                                      : "border-[#E2E8F0] text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50"
-                                )}
-                            >
-                                // PLACEMENT_PIPELINE
-                            </motion.button>
-                        </div>
+                          <div className="flex flex-wrap gap-4 font-mono text-[11px] tracking-widest relative z-10">
+                              <motion.button
+                                  suppressHydrationWarning
+                                  onClick={() => setActiveTab('score')}
+                                  whileHover={{ y: -1.5, scale: 1.015 }}
+                                  whileTap={{ scale: 0.98 }}
+                                  className={cn(
+                                    "px-5 py-2.5 rounded-lg border transition-all duration-500 ease-out cursor-pointer",
+                                    isDark
+                                      ? activeTab === 'score'
+                                        ? "border-slate-700 bg-white/[0.04] text-white"
+                                        : "border-white/5 text-neutral-400 hover:text-neutral-200 hover:border-white/10 hover:bg-white/[0.02]"
+                                      : activeTab === 'score'
+                                        ? "border-slate-300 bg-slate-50 text-[#0F172A]"
+                                        : "border-[#E2E8F0] text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50"
+                                  )}
+                              >
+                                  // READINESS_SCORE
+                              </motion.button>
+                              <motion.button
+                                  suppressHydrationWarning
+                                  onClick={() => setActiveTab('radar')}
+                                  whileHover={{ y: -1.5, scale: 1.015 }}
+                                  whileTap={{ scale: 0.98 }}
+                                  className={cn(
+                                    "px-5 py-2.5 rounded-lg border transition-all duration-500 ease-out cursor-pointer",
+                                    isDark
+                                      ? activeTab === 'radar'
+                                        ? "border-slate-700 bg-white/[0.04] text-white"
+                                        : "border-white/5 text-neutral-400 hover:text-neutral-200 hover:border-white/10 hover:bg-white/[0.02]"
+                                      : activeTab === 'radar'
+                                        ? "border-slate-300 bg-slate-50 text-[#0F172A]"
+                                        : "border-[#E2E8F0] text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50"
+                                  )}
+                              >
+                                  // OPPORTUNITY_RADAR
+                              </motion.button>
+                          </div>
                     </motion.div>
 
                     {/* Dynamic Descriptive Panel */}
@@ -407,27 +409,27 @@ export default function HumanCapitalSection() {
                         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
                             {/* LEFT SIDE: Description Text */}
                             <div className="md:col-span-7 space-y-6 flex flex-col justify-between h-full">
-                                {activeTab === 'score' ? (
-                                    <div className="space-y-3 animate-fadeIn">
-                                        <div className={cn("flex items-center gap-2", isDark ? "text-blue-400" : "text-[#2563EB]")}>
-                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                                            <h3 className={cn("font-editorial font-bold text-lg md:text-xl tracking-tight transition-colors duration-300", isDark ? "text-white" : "text-[#0F172A]")}>Skill Alignment Index</h3>
-                                        </div>
-                                        <p className={cn("text-xs md:text-sm font-normal leading-relaxed max-w-xl", isDark ? "text-slate-300" : "text-slate-600")}>
-                                            A verified framework mapping career preparation for institutional standards, diagnosing exact skill levels against national benchmarks.
-                                        </p>
-                                    </div>
-                                ) : (
-                                    <div className="space-y-3 animate-fadeIn">
-                                        <div className={cn("flex items-center gap-2", isDark ? "text-blue-400" : "text-[#2563EB]")}>
-                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 114 0 2 2 0 01-4 0zM5 11a2 2 0 11-4 0 2 2 0 014 0zM12 11a2 2 0 110-4 2 2 0 010 4zm0 0v10m0 0a2 2 0 100 4 2 2 0 000-4z" /></svg>
-                                            <h3 className={cn("font-editorial font-bold text-lg md:text-xl tracking-tight transition-colors duration-300", isDark ? "text-white" : "text-[#0F172A]")}>Placement & Integration Pipeline</h3>
-                                        </div>
-                                        <p className={cn("text-xs md:text-sm font-normal leading-relaxed max-w-xl", isDark ? "text-slate-300" : "text-slate-600")}>
-                                            An active coordination system aligning qualified talent with public service examinations, industrial internships, and national employment vacancies.
-                                        </p>
-                                    </div>
-                                )}
+                                  {activeTab === 'score' ? (
+                                      <div className="space-y-3 animate-fadeIn">
+                                          <div className={cn("flex items-center gap-2", isDark ? "text-blue-400" : "text-[#2563EB]")}>
+                                              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                                              <h3 className={cn("font-editorial font-bold text-lg md:text-xl tracking-tight transition-colors duration-300", isDark ? "text-white" : "text-[#0F172A]")}>Readiness Score</h3>
+                                          </div>
+                                          <p className={cn("text-xs md:text-sm font-normal leading-relaxed max-w-xl", isDark ? "text-slate-300" : "text-slate-600")}>
+                                              A proprietary algorithm quantifying preparation for specific roles, pinpointing exact skill gaps in real-time.
+                                          </p>
+                                      </div>
+                                  ) : (
+                                      <div className="space-y-3 animate-fadeIn">
+                                          <div className={cn("flex items-center gap-2", isDark ? "text-blue-400" : "text-[#2563EB]")}>
+                                              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 114 0 2 2 0 01-4 0zM5 11a2 2 0 11-4 0 2 2 0 014 0zM12 11a2 2 0 110-4 2 2 0 010 4zm0 0v10m0 0a2 2 0 100 4 2 2 0 000-4z" /></svg>
+                                              <h3 className={cn("font-editorial font-bold text-lg md:text-xl tracking-tight transition-colors duration-300", isDark ? "text-white" : "text-[#0F172A]")}>Opportunity Radar</h3>
+                                          </div>
+                                          <p className={cn("text-xs md:text-sm font-normal leading-relaxed max-w-xl", isDark ? "text-slate-300" : "text-slate-600")}>
+                                              A specialized agent scouting for hyper-relevant jobs, internships, and government exams based on the twin's profile.
+                                          </p>
+                                      </div>
+                                  )}
 
                                 {isMounted && (
                                     <div className={cn(

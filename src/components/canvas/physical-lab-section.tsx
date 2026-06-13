@@ -19,24 +19,24 @@ export default function PhysicalLabSection() {
   const steps = [
     {
       index: "01",
-      tag: "SENSING_LAYER",
-      title: "Spatial & Sensor Integration",
-      desc: "Aggregates inputs from LiDAR arrays, spatial vision networks, and acoustic sensors to map and understand complex real-world environments.",
-      telemetry: "SENSOR_GRID: ACTIVE // CONNECTIVITY: SECURE"
+      tag: "INNOVATION_HUB",
+      title: "Localized Innovation Hub",
+      desc: "Deploying dedicated nodes in regions like North Bengal to support AgTech, tea plantation logistics, and cross-border trade infrastructure.",
+      telemetry: "LOCATION: NORTH BENGAL // STATUS: ACTIVE"
     },
     {
       index: "02",
-      tag: "EDGE_INTELLIGENCE",
-      title: "On-Device Cognitive Processing",
-      desc: "Deploys highly quantized AI models directly onto local edge devices, enabling secure, low-latency, autonomous decision-making without cloud dependence.",
-      telemetry: "EDGE_INFERENCE: ACTIVE // LINK_INTEGRITY: 100%"
+      tag: "LOCALIZED_DATA",
+      title: "Hyper-Localized Data",
+      desc: "Harnessing unique datasets designed specifically for India's environmental, agricultural, and cultural nuances to train custom models.",
+      telemetry: "DATA_SET: EMBEDDED // SYNC_STATUS: OPTIMIZED"
     },
     {
       index: "03",
-      tag: "DEPLOYMENT_NETWORK",
-      title: "Institutional Infrastructure Grid",
-      desc: "Connects physical edge systems across educational classrooms, industrial zones, and strategic sites into a unified national deployment network.",
-      telemetry: "DEPLOYMENT_STATUS: ACTIVE // OPERATIONS: SECURE"
+      tag: "HARDWARE_INTEGRATION",
+      title: "Hardware Integration",
+      desc: "Developing and deploying AI models that run directly on the Edge (drones, robotics, sensors) for secure, real-time autonomous decision-making.",
+      telemetry: "EDGE_NODES: ACTIVE // LINK_INTEGRITY: 100%"
     }
   ];
 
@@ -80,7 +80,7 @@ export default function PhysicalLabSection() {
             "font-normal text-sm md:text-base max-w-xl mx-auto leading-relaxed",
             isDark ? "text-slate-300" : "text-slate-600"
           )}>
-            Orchestrating the sensor networks, edge compute nodes, and autonomous systems that deploy physical intelligence directly into schools, industries, and strategic environments.
+            Orchestrating localized innovation hubs, custom datasets, and edge systems to deploy physical AI directly into agriculture, industries, and regional nodes.
           </p>
         </motion.div>
 
@@ -225,7 +225,7 @@ export default function PhysicalLabSection() {
               )} />
 
               <div className="absolute top-4 right-4 bg-[#0a0f24]/80 backdrop-blur-md px-3 py-1.5 rounded border border-white/10 font-mono text-[9px] tracking-widest text-neutral-400 uppercase shadow-lg">
-                <span>SYSTEM ACTIVE</span>
+                <span>FIELD NODE // NORTH BENGAL</span>
               </div>
             </div>
           </motion.div>

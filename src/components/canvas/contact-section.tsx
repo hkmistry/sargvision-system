@@ -141,6 +141,7 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
                   </div>
 
                   <button
+                    suppressHydrationWarning
                     onClick={resetForm}
                     className="mt-6 px-5 py-2.5 border border-slate-200 dark:border-white/10 hover:border-[#2563EB] dark:hover:border-white/20 bg-white dark:bg-white/5 hover:bg-slate-50 dark:hover:bg-white/10 rounded-full text-xs font-semibold text-[#64748B] dark:text-gray-300 hover:text-[#0F172A] dark:hover:text-white transition-all cursor-pointer flex items-center gap-1.5"
                   >
@@ -166,6 +167,7 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
                         Enter Name
                       </label>
                       <input
+                        suppressHydrationWarning
                         required
                         type="text"
                         placeholder="Your full name..."
@@ -194,6 +196,7 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
                         Provide Email
                       </label>
                       <input
+                        suppressHydrationWarning
                         required
                         type="email"
                         placeholder="yourname@domain.com..."
@@ -222,6 +225,7 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
                         Compose Message
                       </label>
                       <textarea
+                        suppressHydrationWarning
                         required
                         placeholder="How can we help you? Describe your vision or inquiry..."
                         value={formState.message}
@@ -248,6 +252,7 @@ export default function ContactSection({ isSubpage = false }: { isSubpage?: bool
                   {/* Submit Button */}
                   <div className="pt-2">
                     <button
+                      suppressHydrationWarning
                       type="submit"
                       disabled={isTransmitting}
                       className={cn(
