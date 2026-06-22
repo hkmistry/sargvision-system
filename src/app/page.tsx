@@ -111,6 +111,7 @@ export default function HomePage() {
                     ? "bg-white text-dark-base border-white hover:bg-neutral-100"
                     : "bg-slate-900 text-white border-slate-900 hover:bg-slate-800"
                 )}
+                suppressHydrationWarning
               >
                 DEPLOY AGENT
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -124,6 +125,7 @@ export default function HomePage() {
                     ? "bg-transparent border-neutral-700 text-neutral-300 hover:border-neutral-500 hover:text-white hover:bg-white/5"
                     : "bg-transparent border-slate-300 text-slate-600 hover:border-slate-400 hover:text-slate-900 hover:bg-slate-50"
                 )}
+                suppressHydrationWarning
               >
                 View Architecture
               </button>

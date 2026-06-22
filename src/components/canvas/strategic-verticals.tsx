@@ -39,15 +39,15 @@ export default function StrategicVerticals() {
       title: "TACTICAL INTELLIGENCE & OBJECT DETECTION",
       mission: "Total Situational Awareness.",
       coords: "LAT: 34.0837° N // LON: 74.7973° E",
-      overview: "Deploying custom vision models and sovereign chat systems to deliver secure, real-time threat intelligence at the tactical frontier.",
+      overview: "Deploying specialized vision models and sovereign AI systems to deliver secure, real-time tactical intelligence at the operational edge.",
       features: [
         {
           heading: "Military Object Detection",
-          text: "Deploying state-of-the-art computer vision models for high-precision military object detection, engineered to perform in the rugged and unstructured environments of the Indian borders."
+          text: "Implementing advanced computer vision systems for high-precision military object detection, engineered to operate effectively within the demanding and unstructured environments of India's border regions."
         },
         {
           heading: "Military Chatbot",
-          text: "A secure, sovereign chatbot framework designed for tactical communication, providing soldiers and commanders with instant, profile-aware intelligence and operational support."
+          text: "A secure sovereign communication framework designed to support soldiers and commanders with instant, context-aware intelligence and operational assistance."
         }
       ],
       color: "blue",
@@ -88,15 +88,15 @@ export default function StrategicVerticals() {
       title: "ASTRAAI & ORBITAL EDGE",
       mission: "Autonomy in Orbit.",
       coords: "ALT: 540KM // ECC: 0.00014 // INC: 97.4°",
-      overview: "Researching multi-agent AI frameworks and orbital edge computation payloads for sovereign space capabilities.",
+      overview: "Advancing multi-agent AI architectures and orbital edge computing systems to strengthen sovereign space capabilities.",
       features: [
         {
-          heading: "AstraAI",
-          text: "A multi-agent AI framework designed for sovereign space capabilities, including constellation management and interplanetary mission agents."
+          heading: "Astra AI",
+          text: "A multi-agent intelligence framework developed for sovereign space operations, including constellation management and autonomous mission coordination."
         },
         {
           heading: "Space Edge Computing",
-          text: "Researching and implementing AI processing directly on spacecraft, allowing for real-time data analysis and autonomous control without the latency of ground stations."
+          text: "Enabling AI processing directly on spacecraft to support real-time data analysis and autonomous decision-making without reliance on ground-station latency."
         }
       ],
       color: "indigo",
@@ -135,11 +135,11 @@ export default function StrategicVerticals() {
       title: "MARITIME DOMAIN AWARENESS",
       mission: "Oceanic Sovereignty.",
       coords: "DEPTH: -450M // SECTOR: BAY_OF_BENGAL",
-      overview: "Leveraging agentic intelligence platforms to coordinate maritime surveillance and domain awareness operations.",
+      overview: "Leveraging agentic intelligence systems to enhance maritime surveillance, coordination, and domain awareness across strategic waters.",
       features: [
         {
           heading: "Autonomous Coordination",
-          text: "Leveraging agentic AI to provide real-time situational awareness and coordination for maritime operations, ensuring constant monitoring and response capabilities across vast oceanic frontiers."
+          text: "Utilizing agentic AI to provide continuous situational awareness and operational coordination for maritime missions, enabling persistent monitoring and rapid response across vast oceanic environments."
         }
       ],
       color: "blue",

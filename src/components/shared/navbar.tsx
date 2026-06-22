@@ -4,12 +4,12 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Menu, X, VolumeX, Volume2, Sun, Moon } from "lucide-react";
+import { Menu, X, VolumeX, Volume2 } from "lucide-react";
 import { useTheme } from "@/components/theme-provider";
 import { motion } from "framer-motion";
 
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const isDark = theme === "dark";
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -158,28 +158,6 @@ export default function Navbar() {
 
         {/* Operating System Style Right Status Items - Right Column */}
         <div className="hidden md:flex flex-1 items-center justify-end gap-x-4 flex-nowrap shrink-0">
-          {/* Frosted Glass Theme Toggle Button */}
-          <motion.button
-            whileHover={{ scale: 1.08, y: -1 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={toggleTheme}
-            className="flex items-center justify-center p-2 rounded-full bg-white/80 dark:bg-white/5 border border-slate-200 dark:border-white/5 text-[#0F172A] dark:text-gray-300 hover:text-[#0F172A] dark:hover:text-white hover:shadow-[0_4px_12px_rgba(37,99,235,0.15)] dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.05)] transition-all duration-200 cursor-pointer shadow-sm backdrop-blur-md"
-            aria-label="Toggle Theme"
-          >
-            <motion.div
-              key={theme}
-              initial={{ rotate: -90, opacity: 0, scale: 0.6 }}
-              animate={{ rotate: 0, opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, ease: "backOut" }}
-            >
-              {theme === "dark" ? (
-                <Sun className="w-4 h-4 text-amber-400" />
-              ) : (
-                <Moon className="w-4 h-4 text-indigo-600" />
-              )}
-            </motion.div>
-          </motion.button>
-
           {/* Audio Status Element */}
           <div 
             onClick={() => setIsAudioOn(!isAudioOn)}
@@ -241,27 +219,6 @@ export default function Navbar() {
           </nav>
 
           <div className="flex flex-col gap-4 pb-8">
-            {/* Theme Toggle in Mobile Menu */}
-            <div 
-              onClick={toggleTheme}
-              className="flex items-center justify-between border-t border-[#E2E8F0] dark:border-white/5 pt-4 cursor-pointer select-none"
-            >
-              <span className="text-[10px] font-bold text-slate-500 dark:text-gray-400 tracking-wider">THEME ENGINE</span>
-              <div className="flex items-center gap-1.5 text-[9px] font-bold tracking-wider text-slate-500 dark:text-gray-400">
-                {theme === "dark" ? (
-                  <>
-                    <Sun className="w-3.5 h-3.5 text-amber-400" />
-                    <span className="text-amber-400">DARK MODE</span>
-                  </>
-                ) : (
-                  <>
-                    <Moon className="w-3.5 h-3.5 text-indigo-600" />
-                    <span className="text-indigo-600">LIGHT MODE</span>
-                  </>
-                )}
-              </div>
-            </div>
-
             <div 
               onClick={() => setIsAudioOn(!isAudioOn)}
               className="flex items-center justify-between border-t border-[#E2E8F0] dark:border-white/5 pt-4 cursor-pointer select-none"

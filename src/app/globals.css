@@ -92,37 +92,9 @@
   scroll-behavior: smooth;
 }
 
-.dark {
-  --background: #050816;
-  --foreground: #f8fafc;
-  
-  --bg-base: #050816;
-  --bg-panel: #0B1020;
-  --bg-elevated: #111827;
-  --border-theme: rgba(255, 255, 255, 0.08);
-
-  --premium-slate: #EAEDF0;
-  --premium-grey: #F4F4F4;
-  --premium-alabaster: #FDFCFA;
-  --premium-ice: #F4F8FF;
-
-  --font-sans-custom: var(--font-inter), system-ui, sans-serif;
-  --font-heading-custom: var(--font-cormorant), Georgia, serif;
-}
-
 /* Base Headings Style */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading-custom);
-}
-
-/* Tighten letters on headings & Inter font in Light Mode for premium SaaS feel */
-body:not(.dark) h1,
-body:not(.dark) h2,
-body:not(.dark) h3,
-body:not(.dark) h4,
-body:not(.dark) h5,
-body:not(.dark) h6,
-body:not(.dark) .font-heading {
   letter-spacing: -0.02em;
 }
 
@@ -140,9 +112,6 @@ body:not(.dark) .font-heading {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #cbd5e1;
-}
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #1f2937;
 }
 
 body {
@@ -174,22 +143,6 @@ body {
   transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
 }
 
-.dark .glass-morphic {
-  background: rgba(11, 16, 32, 0.5);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-}
-
-.dark .glass-morphic-glowing {
-  background: rgba(11, 16, 32, 0.4);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-}
-
 /* Sovereign Light Card — Premium intelligence module surface */
 .sovereign-light-card {
   background: #FFFFFF;
@@ -204,24 +157,11 @@ body {
 
 /* Futuristic Tech Grid Masks */
 .tech-grid-dots {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* Light-mode grid — more visible, suggests data infrastructure */
-:root .tech-grid-dots {
   background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 .tech-grid-lines {
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 80px 80px;
-}
-
-:root .tech-grid-lines {
   background-image: 
     linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);

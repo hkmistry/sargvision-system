@@ -13,42 +13,18 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("dark");
-  const [mounted, setMounted] = useState(false);
+  // Always default to "light" theme
+  const theme: Theme = "light";
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") as Theme;
-    if (savedTheme === "light" || savedTheme === "dark") {
-      setThemeState(savedTheme);
-    } else {
-      setThemeState("dark");
-    }
-    setMounted(true);
+    const root = window.document.documentElement;
+    root.classList.add("light");
+    root.classList.remove("dark");
   }, []);
 
-  const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
-    localStorage.setItem("theme", newTheme);
-  };
+  const setTheme = () => {};
+  const toggleTheme = () => {};
 
-  const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
-  };
-
-  useEffect(() => {
-    if (!mounted) return;
-    const root = window.document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-      root.classList.remove("light");
-    } else {
-      root.classList.add("light");
-      root.classList.remove("dark");
-    }
-  }, [theme, mounted]);
-
-  // Prevent hydration mismatches by rendering children only after mounting, or keeping standard fallback
   return (
     <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
       {children}

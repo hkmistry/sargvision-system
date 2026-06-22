@@ -374,7 +374,7 @@ export default function HumanCapitalSection() {
                             "text-sm md:text-base font-normal leading-relaxed max-w-2xl antialiased relative z-10",
                             isDark ? "text-slate-300" : "text-slate-600"
                           )}>
-                              A hyper-personalized AI-powered career co-pilot designed to navigate Indian students from all backgrounds through their professional development journey.
+                              A personalized AI-powered career companion designed to support Indian students from diverse backgrounds throughout their academic and professional development journey.
                           </p>
 
                         <div className="w-full h-[1px] bg-gradient-to-r from-white/5 via-transparent to-transparent" />
@@ -445,7 +445,7 @@ export default function HumanCapitalSection() {
                                               <h3 className={cn("font-editorial font-bold text-lg md:text-xl tracking-tight transition-colors duration-300", isDark ? "text-white" : "text-[#0F172A]")}>Readiness Score</h3>
                                           </div>
                                           <p className={cn("text-xs md:text-sm font-normal leading-relaxed max-w-xl", isDark ? "text-slate-300" : "text-slate-600")}>
-                                              A proprietary algorithm quantifying preparation for specific roles, pinpointing exact skill gaps in real-time.
+                                              A proprietary assessment framework that evaluates preparedness for targeted career paths, identifying skill gaps and growth areas to support continuous development.
                                           </p>
                                       </div>
                                   ) : (
@@ -455,7 +455,7 @@ export default function HumanCapitalSection() {
                                               <h3 className={cn("font-editorial font-bold text-lg md:text-xl tracking-tight transition-colors duration-300", isDark ? "text-white" : "text-[#0F172A]")}>Opportunity Radar</h3>
                                           </div>
                                           <p className={cn("text-xs md:text-sm font-normal leading-relaxed max-w-xl", isDark ? "text-slate-300" : "text-slate-600")}>
-                                              A specialized agent scouting for hyper-relevant jobs, internships, and government exams based on the twin's profile.
+                                              An intelligent opportunity discovery agent that continuously identifies relevant jobs, internships, and government opportunities aligned with an individual's profile and aspirations.
                                           </p>
                                       </div>
                                   )}

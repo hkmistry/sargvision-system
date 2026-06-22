@@ -15,9 +15,6 @@ interface LockTarget {
 type CursorState = "default" | "card" | "button" | "button-large" | "link" | "robot" | "robot-tight";
 
 export default function CustomCursor() {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
-
   const [isTouchOrMobile, setIsTouchOrMobile] = useState(false);
 
   useEffect(() => {
@@ -180,17 +177,9 @@ export default function CustomCursor() {
       button:      "rgba(15, 23, 42, 0.45)",
       buttonLarge: "rgba(15, 23, 42, 0.45)",
     },
-    // Dark mode: white rings at varying opacity
-    dark: {
-      default:     "rgba(255, 255, 255, 0.35)",
-      card:        "rgba(255, 255, 255, 0.45)",
-      link:        "rgba(255, 255, 255, 0.60)",
-      button:      "rgba(255, 255, 255, 0.50)",
-      buttonLarge: "rgba(255, 255, 255, 0.50)",
-    },
   };
 
-  const palette = isDark ? ring.dark : ring.light;
+  const palette = ring.light;
 
   // ─── Ring geometry per cursor state ──────────────────────────────────────
   const getRingStyle = (): React.CSSProperties => {
@@ -288,10 +277,8 @@ export default function CustomCursor() {
           <div
             className="w-1.5 h-1.5 rounded-full transition-colors duration-300 relative z-10"
             style={{
-              backgroundColor: isDark ? "#ffffff" : "#0F172A",
-              boxShadow: isDark
-                ? "0 0 0 1px rgba(255,255,255,0.15)"
-                : "0 0 0 1px rgba(15,23,42,0.25)",
+              backgroundColor: "#0F172A",
+              boxShadow: "0 0 0 1px rgba(15,23,42,0.25)",
             }}
           />
         </div>

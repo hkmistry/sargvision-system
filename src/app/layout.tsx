@@ -42,7 +42,7 @@ export default function RootLayout({
       lang="en"
       className={`h-full antialiased ${inter.variable} ${spaceGrotesk.variable} ${cormorant.variable}`}
     >
-      <body className="min-h-full flex flex-col bg-dark-base text-[#0F172A] dark:text-gray-100 select-none transition-colors duration-500">
+      <body className="min-h-full flex flex-col bg-dark-base text-[#0F172A] select-none transition-colors duration-500">
         <ThemeProvider>
           {/* Preload/load the official Spline Viewer script client-side as early as possible */}
           <Script
